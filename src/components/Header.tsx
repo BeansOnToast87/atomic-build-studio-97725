@@ -8,7 +8,7 @@ const Header = () => {
       className="w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center">
+        <div className="flex h-18 md:h-22 items-center">
           <Link 
             to="/"
             className="flex items-center gap-3 md:gap-4 group focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring rounded-sm"
@@ -17,15 +17,15 @@ const Header = () => {
             <picture>
               <img 
                 src={logoImage}
-                width="56"
-                height="56"
+                width="72"
+                height="72"
                 alt="Proof Launch Studio logo"
                 decoding="async"
                 fetchPriority="low"
-                className="w-14 h-14 md:w-16 md:h-16 transition-transform group-hover:scale-105"
+                className="w-[72px] h-[72px] md:w-20 md:h-20 transition-transform group-hover:scale-105"
               />
             </picture>
-            <span className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+            <span className="text-base md:text-lg font-semibold tracking-tight text-foreground group-hover:text-primary transition-colors">
               Proof Launch Studio
             </span>
           </Link>
