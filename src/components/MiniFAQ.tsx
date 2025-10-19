@@ -83,6 +83,12 @@ export default function MiniFAQ() {
       <style>{`
         .section { padding-block: 2.5rem; }
         .container { max-width: 1100px; margin-inline: auto; padding-inline: 1rem; }
+        h2 { 
+          color: #0B1220; 
+          font-size: 1.75rem; 
+          font-weight: 700; 
+          margin-bottom: 1.5rem; 
+        }
         .faq-grid { display:grid; gap: .875rem; grid-template-columns: 1fr; }
         details { 
           border: 2px solid #d1d5db; 
@@ -123,6 +129,8 @@ export default function MiniFAQ() {
           padding-top: .75rem; 
           border-top: 1px solid #e5e7eb;
           line-height: 1.6;
+          color: #1B2332;
+          font-size: 0.975rem;
         }
         .faq-cta { margin-top: 1.5rem; display:flex; gap:.5rem; flex-wrap:wrap; }
         .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:.75rem 1rem; border-radius:12px; font-weight:600; background:#0B1220; color:#fff; text-decoration:none; }
@@ -130,9 +138,10 @@ export default function MiniFAQ() {
         .btn-light { background:#F6F8FF; color:#0B1220; border:1px solid #d1d5db; }
         .btn-light:focus-visible { outline:3px solid #2663FF; outline-offset:2px; }
         @media (prefers-color-scheme: dark){
+          h2 { color: #F9FAFB; }
           details { background:#1f2937; border-color:#4b5563; }
           details[open]{ background:#0b1220; border-color:#3b82f6; }
-          details div { border-top-color: #374151; }
+          details div { border-top-color: #374151; color: #E5E7EB; }
           summary { color: #f9fafb; }
           summary:hover { background: #374151; }
           .btn-light { background:#162033; color:#F6F8FF; border-color:#243043; }
