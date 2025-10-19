@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { sfga } from '@/lib/analytics';
+import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Offer from '@/components/Offer';
 import DemoGallery from '@/components/DemoGallery';
@@ -16,6 +17,8 @@ const Index = () => {
 
   return (
     <>
+      <Header />
+      
       <main role="main" className="min-h-screen">
         <Hero />
         <Offer />
