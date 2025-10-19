@@ -7,7 +7,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
           {/* Content Column */}
-          <div className="lg:col-span-2 space-y-6 md:space-y-8">
+          <div className="lg:col-span-2 space-y-5 md:space-y-7">
             {/* Headline */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground">
               Get more enquiries in 7 days. High-trust local-service sites launched remotely.
@@ -18,8 +18,8 @@ const Hero = () => {
               Manchester-born, currently AU-based. We ship UK/US home-service sites fast—GA4-tracked, results or build fee = $0.
             </p>
             
-            {/* CTA Group */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-2">
+            {/* CTA Group - All CTAs */}
+            <div className="flex flex-col md:flex-row gap-4 pt-2 md:items-center">
               {/* Primary CTA */}
               <Button 
                 size="lg"
@@ -62,10 +62,8 @@ const Hero = () => {
                   WhatsApp us
                 </a>
               </Button>
-            </div>
-            
-            {/* Tertiary CTA */}
-            <div className="pt-2">
+              
+              {/* Tertiary CTA - Inline on md+ */}
               <a 
                 href="mailto:hello@prooflaunchstudio.com"
                 className="text-primary hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring inline-flex items-center min-h-[44px] text-base font-medium"
