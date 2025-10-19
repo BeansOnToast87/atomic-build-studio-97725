@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { sfga } from '@/lib/analytics';
+import Hero from '@/components/Hero';
 
 const Index = () => {
   useEffect(() => {
@@ -14,15 +15,7 @@ const Index = () => {
       </header>
       
       <main role="main" className="min-h-screen">
-        {/* Main content sections will be added in subsequent blocks */}
-        <div className="flex min-h-screen items-center justify-center">
-          <div className="text-center">
-            <h1 className="mb-4 text-4xl font-bold">Foundation Ready</h1>
-            <p className="text-xl text-muted-foreground">
-              GA4 helper initialized • Sticky CTA reserved • Landmarks in place
-            </p>
-          </div>
-        </div>
+        <Hero />
       </main>
       
       <footer role="contentinfo" className="w-full">
