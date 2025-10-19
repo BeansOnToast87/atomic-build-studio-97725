@@ -38,7 +38,7 @@ const Footer = () => {
           
           <div>
             <a
-              href="#"
+              href="/privacy"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded"
             >
               Privacy Policy

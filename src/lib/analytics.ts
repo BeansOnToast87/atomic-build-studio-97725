@@ -20,8 +20,10 @@ class GA4Helper {
     if (typeof window !== 'undefined') {
       // Expose globally for inline onclick handlers
       (window as any).sfga = this;
-      // Enable DebugView in QA
-      (window as any).sfgaAllowed = true;
+      // Enable DebugView in QA/local environments only
+      (window as any).sfgaAllowed = location.hostname.includes('localhost') 
+        || location.hostname.includes('lovable.app')
+        || location.search.includes('debug_mode=1');
     }
   }
 

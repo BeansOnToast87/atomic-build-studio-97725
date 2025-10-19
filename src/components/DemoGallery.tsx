@@ -7,26 +7,30 @@ const demos = [
     title: 'Pressure Washing Demo',
     outcome: 'WhatsApp CTA • GA4 tracked',
     icon: Droplets,
+    url: 'https://demo1.prooflaunchstudio.com',
   },
   {
     title: 'Mobile Detailing Demo',
     outcome: 'Call/WhatsApp sticky footer',
     icon: Car,
+    url: 'https://demo2.prooflaunchstudio.com',
   },
   {
     title: 'Trades Template',
     outcome: 'Audit-first layout',
     icon: Hammer,
+    url: 'https://demo3.prooflaunchstudio.com',
   },
 ];
 
 const DemoGallery = () => {
-  const handleViewDemo = () => {
+  const handleViewDemo = (demoUrl: string) => {
     sfga.fire('audit_click', {
       event_category: 'micro',
       dest: 'demo_view',
       page_location: window.location.href,
     });
+    window.open(demoUrl, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -53,7 +57,7 @@ const DemoGallery = () => {
                   
                   <div className="mt-auto space-y-3">
                     <Button
-                      onClick={handleViewDemo}
+                      onClick={() => handleViewDemo(demo.url)}
                       className="w-full min-h-[44px]"
                       aria-label={`View ${demo.title}`}
                     >
