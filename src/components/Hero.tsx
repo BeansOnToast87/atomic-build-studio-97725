@@ -7,14 +7,14 @@ const Hero = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
           {/* Content Column */}
-          <div className="lg:col-span-2 space-y-5 md:space-y-7">
+          <div className="lg:col-span-2 space-y-5 md:space-y-6">
             {/* Headline */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground">
+            <h1 className="max-w-[24ch] text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] text-foreground">
               Get more enquiries in 7 days. High-trust local-service sites launched remotely.
             </h1>
             
             {/* Subhead */}
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+            <p className="max-w-[60ch] text-lg md:text-xl text-muted-foreground leading-relaxed">
               Manchester-born, currently AU-based. We ship UK/US home-service sites fast—GA4-tracked, results or build fee = $0.
             </p>
             
