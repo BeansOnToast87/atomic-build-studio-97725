@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { sfga } from '@/lib/analytics';
 import Hero from '@/components/Hero';
+import Offer from '@/components/Offer';
 
 const Index = () => {
   useEffect(() => {
@@ -16,6 +17,7 @@ const Index = () => {
       
       <main role="main" className="min-h-screen">
         <Hero />
+        <Offer />
       </main>
       
       <footer role="contentinfo" className="w-full">
