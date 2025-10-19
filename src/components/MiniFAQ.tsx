@@ -17,7 +17,12 @@ export default function MiniFAQ() {
 
         <div className="faq-grid">
           <details>
-            <summary>What if you miss the 7-day launch?</summary>
+            <summary>
+              What if you miss the 7-day launch?
+              <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </summary>
             <div>
               If we miss Day 7, you don't pay the build fee. Simple. We'll still finish and hand over,
               but the build fee becomes $0 (you'll only ever cover any optional pass-through costs).
@@ -25,7 +30,12 @@ export default function MiniFAQ() {
           </details>
 
           <details>
-            <summary>What do you need from me?</summary>
+            <summary>
+              What do you need from me?
+              <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </summary>
             <div>
               ~45–60 minutes total: a short intake, your logo/brand colors (optional),
               and 3–5 service photos. We write/structure the page, wire GA4, and ship.
@@ -33,7 +43,12 @@ export default function MiniFAQ() {
           </details>
 
           <details>
-            <summary>How soon can you start?</summary>
+            <summary>
+              How soon can you start?
+              <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </summary>
             <div>
               We hold <strong>2 build slots per week</strong>. Need it faster?
               Add <em>Fast-Track (3-day)</em> for +$250, subject to current slot availability.
@@ -68,19 +83,58 @@ export default function MiniFAQ() {
       <style>{`
         .section { padding-block: 2.5rem; }
         .container { max-width: 1100px; margin-inline: auto; padding-inline: 1rem; }
-        .faq-grid { display:grid; gap: .75rem; grid-template-columns: 1fr; }
-        details { border:1px solid #e5e7eb; border-radius:12px; padding:.75rem 1rem; background:#fff; }
-        summary { cursor:pointer; font-weight:600; list-style:none; }
-        summary::-webkit-details-marker { display:none; }
-        details[open] { background:#f6f8ff; border-color:#dbe2ff; }
-        .faq-cta { margin-top: 1rem; display:flex; gap:.5rem; flex-wrap:wrap; }
+        .faq-grid { display:grid; gap: .875rem; grid-template-columns: 1fr; }
+        details { 
+          border: 2px solid #d1d5db; 
+          border-radius: 12px; 
+          padding: .875rem 1.25rem; 
+          background: #f9fafb;
+          box-shadow: 0 1px 3px rgba(0,0,0,.08);
+          transition: all 0.2s ease;
+        }
+        summary { 
+          cursor: pointer; 
+          font-weight: 600; 
+          font-size: 1.05rem;
+          color: #111827;
+          list-style: none;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 1rem;
+          padding: .25rem 0;
+          border-radius: 8px;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary:hover { background: #f3f4f6; padding-inline: .5rem; }
+        summary svg { 
+          flex-shrink: 0;
+          transition: transform 0.2s ease;
+          opacity: 0.6;
+        }
+        details[open] summary svg { transform: rotate(180deg); }
+        details[open] { 
+          background: #f6f8ff; 
+          border-color: #93b4ff;
+          box-shadow: 0 2px 4px rgba(38,99,255,.12);
+        }
+        details div { 
+          margin-top: .75rem; 
+          padding-top: .75rem; 
+          border-top: 1px solid #e5e7eb;
+          line-height: 1.6;
+        }
+        .faq-cta { margin-top: 1.5rem; display:flex; gap:.5rem; flex-wrap:wrap; }
         .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:.75rem 1rem; border-radius:12px; font-weight:600; background:#0B1220; color:#fff; text-decoration:none; }
         .btn:focus-visible { outline:3px solid #2663FF; outline-offset:2px; }
         .btn-light { background:#F6F8FF; color:#0B1220; border:1px solid #d1d5db; }
         .btn-light:focus-visible { outline:3px solid #2663FF; outline-offset:2px; }
         @media (prefers-color-scheme: dark){
-          details { background:#111827; border-color:#374151; }
-          details[open]{ background:#0b1220; border-color:#1f2937; }
+          details { background:#1f2937; border-color:#4b5563; }
+          details[open]{ background:#0b1220; border-color:#3b82f6; }
+          details div { border-top-color: #374151; }
+          summary { color: #f9fafb; }
+          summary:hover { background: #374151; }
           .btn-light { background:#162033; color:#F6F8FF; border-color:#243043; }
         }
       `}</style>
