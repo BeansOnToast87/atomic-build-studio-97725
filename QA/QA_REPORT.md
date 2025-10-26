@@ -1,7 +1,7 @@
 # QA Report — Proof Launch Studio
-**Generated:** 2025-10-19T19:45:00Z  
-**Prompt ID:** QA1-AGENCY  
-**Scope:** GA4 events, budgets, accessibility, SEO validation
+**Generated:** 2025-10-19T21:30:00Z  
+**Prompt ID:** QA2-FINAL  
+**Scope:** GA4 production hookup, page_view tracking, currency toggle, logo optimization, final validation
 
 ---
 
@@ -9,14 +9,17 @@
 
 ### Summary
 ✅ **All required GA4 events present and correctly configured**  
+✅ **Production GA4 ID: G-PASTE_ID_HERE**  
+✅ **`page_view` event auto-fires on route changes (/ ↔ /privacy)**  
 ✅ **All events include `event_category` and `page_location`**  
 ✅ **E.164 phone format used: `+61436275470`**  
-✅ **Helper initialized with `window.sfgaAllowed=true` for DebugView**
+✅ **Helper initialized with `window.sfgaAllowed=true` for DebugView (localhost/lovable/?debug_mode=1)**
 
 ### Events Table
 
 | Component | Selector/Label | Event Name | Event Category | Additional Params | Line(s) |
 |-----------|----------------|------------|----------------|-------------------|---------|
+| **App.tsx** | Route change listener | `page_view` | (auto) | `page_title`, `page_location`, `page_path` | 13-21 |
 | **Hero.tsx** | "Book 10-min audit" button | `audit_click` | `conversion` | `dest: 'calendly'`, `page_location` | 14 |
 | **Hero.tsx** | "WhatsApp us" button | `whatsapp_click` | `conversion` | `phone_number: '+61436275470'`, `page_location` | 41 |
 | **Hero.tsx** | "Email" link | `email_click` | `conversion` | `email: 'hello@prooflaunchstudio.com'`, `page_location` | 64 |
@@ -28,6 +31,7 @@
 | **Footer.tsx** | Email link | `email_click` | `conversion` | `email: 'hello@prooflaunchstudio.com'`, `page_location` | 4 |
 
 ### Event Coverage by Type
+- **`page_view`:** Auto-fires on initial load + route changes (/ ↔ /privacy)
 - **`audit_click` (conversion):** 5 instances — Hero, Offer, Packages, StickyCTA
 - **`audit_click` (micro):** 1 instance — DemoGallery (×3 buttons, shared handler)
 - **`whatsapp_click`:** 2 instances — Hero, StickyCTA

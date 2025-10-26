@@ -15,13 +15,19 @@ const Header = () => {
             aria-label="Go to homepage"
           >
             <picture className="shrink-0">
+              <source 
+                type="image/webp" 
+                srcSet={logoImage} 
+                width="144"
+                height="144"
+              />
               <img 
                 src={logoImage}
                 width="144"
                 height="144"
                 alt="Proof Launch Studio logo"
                 decoding="async"
-                fetchPriority="low"
+                loading="eager"
                 className="w-[112px] h-[112px] md:w-[144px] md:h-[144px] transition-transform group-hover:scale-105"
               />
             </picture>
