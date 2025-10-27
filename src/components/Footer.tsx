@@ -19,10 +19,12 @@ const Footer = () => {
   const handleWhatsAppClick = () => {
     sfga.fire('cta_whatsapp_click', {
       phone_number: phone,
+      page_slug: pageSlug,
+      location: 'footer',
+      is_mobile: /Mobi/i.test(navigator.userAgent),
       page_title: document.title,
       page_location: window.location.href,
-      page_path: window.location.pathname,
-      page_slug: pageSlug
+      page_path: window.location.pathname
     });
   };
 
@@ -58,6 +60,8 @@ const Footer = () => {
               className="text-sm hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded px-2 py-1"
               aria-label="WhatsApp the agency"
               data-cta="whatsapp"
+              data-testid="cta-whatsapp"
+              data-loc="footer"
             >
               WhatsApp: {phone}
             </a>

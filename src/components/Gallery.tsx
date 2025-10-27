@@ -61,6 +61,39 @@ const Gallery = () => {
             </p>
           </div>
         </div>
+
+        {/* Proof GIFs Section */}
+        <div className="mt-12">
+          <h3 className="text-2xl font-bold text-center mb-8 text-slate-500">
+            Proof GIFs
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-card border border-border rounded-lg p-6 flex flex-col items-center min-h-[180px]">
+              <div className="w-full aspect-video bg-muted/50 rounded mb-3 flex items-center justify-center">
+                <p className="text-xs text-muted-foreground">debugview_firing.gif</p>
+              </div>
+              <p className="text-sm text-center text-muted-foreground">
+                Live tracking: WhatsApp + pricing clicks are counted.
+              </p>
+            </div>
+            <div className="bg-card border border-border rounded-lg p-6 flex flex-col items-center min-h-[180px]">
+              <div className="w-full aspect-video bg-muted/50 rounded mb-3 flex items-center justify-center">
+                <p className="text-xs text-muted-foreground">lighthouse_mobile_90.gif</p>
+              </div>
+              <p className="text-sm text-center text-muted-foreground">
+                Mobile speed 90+ so more visitors stick.
+              </p>
+            </div>
+            <div className="bg-card border border-border rounded-lg p-6 flex flex-col items-center min-h-[180px]">
+              <div className="w-full aspect-video bg-muted/50 rounded mb-3 flex items-center justify-center">
+                <p className="text-xs text-muted-foreground">whatsapp_ping.gif</p>
+              </div>
+              <p className="text-sm text-center text-muted-foreground">
+                Leads go straight to your phone.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>;
 };

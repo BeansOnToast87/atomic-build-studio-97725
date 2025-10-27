@@ -31,11 +31,17 @@ const PricingTierCards = () => {
     features: ["Everything in Growth", "Second page, retarget pixel", "Weekly check-ins for 30 days (loom)", "KPI: 20+ tracked actions; weekly report + fixes"]
   }];
   const rushFeePercent = 30;
-  const handlePricingSelect = (tierName: string, deposit: number) => {
+  const handlePricingSelect = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const btn = e.currentTarget;
+    const pageSlug = location.pathname === '/' ? 'home' : location.pathname.replace(/^\/+/, '').replace(/\/+/g, '-');
+    
     sfga.fire('pricing_select', {
-      tier: tierName,
+      tier: btn.dataset.tier || '',
       currency: 'USD',
-      deposit: deposit,
+      price: Number(btn.dataset.price) || 0,
+      deposit: Number(btn.dataset.deposit) || 0,
+      rush: btn.dataset.rush === 'true',
+      page_slug: pageSlug,
       page_title: document.title,
       page_location: window.location.href,
       page_path: window.location.pathname
@@ -63,6 +69,13 @@ const PricingTierCards = () => {
           </div>
           <p className="text-sm text-muted-foreground">
             Checks monthly, small fixes, 1 minor edit/mo, GA4 snapshot, WhatsApp priority.
+          </p>
+        </div>
+
+        {/* Slots Cap Notice */}
+        <div className="max-w-md mx-auto mb-8 text-center">
+          <p className="text-sm text-muted-foreground">
+            Only 5 slots each month.
           </p>
         </div>
 
@@ -100,11 +113,27 @@ const PricingTierCards = () => {
                   </li>)}
               </ul>
 
-              <Button size="lg" onClick={() => handlePricingSelect(tier.name, tier.deposit)} className="min-h-[44px] w-full" data-cta="primary" data-tier={tier.name} data-deposit={tier.deposit} asChild>
+              <Button 
+                size="lg" 
+                onClick={handlePricingSelect}
+                className="min-h-[44px] w-full" 
+                data-cta="primary"
+                data-testid="pricing-select"
+                data-tier={tier.name.toLowerCase().replace(' ', '-')}
+                data-price={tier.price}
+                data-deposit={tier.deposit}
+                data-rush="false"
+                asChild
+              >
                 <a href={schedulerUrl} target="_blank" rel="noopener noreferrer" aria-label={`Book audit for ${tier.name}`}>
                   Book a 10-min audit
                 </a>
               </Button>
+
+              {/* Guarantee Note */}
+              <p className="text-xs text-muted-foreground text-center mt-3">
+                Miss Day-7? Refund + we keep working.
+              </p>
             </article>)}
         </div>
       </div>

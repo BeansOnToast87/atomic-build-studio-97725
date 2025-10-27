@@ -14,8 +14,13 @@ const LeadMagnetModal = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
+    const pageSlug = location.pathname === '/' ? 'home' : location.pathname.replace(/^\/+/, '').replace(/\/+/g, '-');
+    const emailDomain = email.includes('@') ? email.split('@')[1] : '';
+    
     sfga.fire('lead_magnet_submit', {
-      email,
+      asset: 'enquiry-audit',
+      page_slug: pageSlug,
+      email_domain: emailDomain,
       page_title: document.title,
       page_location: window.location.href,
       page_path: window.location.pathname

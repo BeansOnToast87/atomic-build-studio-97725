@@ -9,6 +9,9 @@ const Hero = () => {
 
   const handleAuditClick = () => {
     sfga.fire('cta_book_audit_click', {
+      location: 'hero',
+      page_slug: pageSlug,
+      cta_variant: 'primary',
       page_title: document.title,
       page_location: window.location.href,
       page_path: window.location.pathname
@@ -18,10 +21,12 @@ const Hero = () => {
   const handleWhatsAppClick = () => {
     sfga.fire('cta_whatsapp_click', {
       phone_number: phone,
+      page_slug: pageSlug,
+      location: 'hero',
+      is_mobile: /Mobi/i.test(navigator.userAgent),
       page_title: document.title,
       page_location: window.location.href,
-      page_path: window.location.pathname,
-      page_slug: pageSlug
+      page_path: window.location.pathname
     });
   };
 
@@ -52,13 +57,23 @@ const Hero = () => {
             <span className="inline-flex items-center px-3 py-1 rounded-full bg-card border border-border text-sm font-medium">
               GA4 tracking
             </span>
-            <span className="inline-flex items-center px-3 py-1 rounded-full bg-card border border-border text-sm font-medium">
-              7-Day Sprint
-            </span>
-          </div>
-          
-          {/* CTA Group */}
-          <div className="flex flex-col sm:flex-row gap-4 pt-6 justify-center items-center">
+          <span className="inline-flex items-center px-3 py-1 rounded-full bg-card border border-border text-sm font-medium">
+            7-Day Sprint
+          </span>
+          <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium border border-primary/20">
+            Live GA4 DebugView
+          </span>
+        </div>
+        
+        {/* Urgency Bar */}
+        <div className="pt-2">
+          <p className="text-sm text-muted-foreground font-medium">
+            Only 5 build slots this month.
+          </p>
+        </div>
+        
+        {/* CTA Group */}
+        <div className="flex flex-col sm:flex-row gap-4 pt-6 justify-center items-center">
             {/* Primary CTA */}
             <Button 
               size="lg"
@@ -66,6 +81,8 @@ const Hero = () => {
               asChild
               className="min-h-[44px] min-w-[44px]"
               data-cta="primary"
+              data-testid="cta-audit"
+              data-loc="hero"
             >
               <a 
                 href={schedulerUrl}
@@ -78,14 +95,16 @@ const Hero = () => {
             </Button>
             
             {/* Secondary CTA */}
-            <Button 
-              size="lg"
-              variant="secondary"
-              onClick={handleWhatsAppClick}
-              asChild
-              className="min-h-[44px] min-w-[44px]"
-              data-cta="whatsapp"
-            >
+          <Button 
+            size="lg"
+            variant="secondary"
+            onClick={handleWhatsAppClick}
+            asChild
+            className="min-h-[44px] min-w-[44px]"
+            data-cta="whatsapp"
+            data-testid="cta-whatsapp"
+            data-loc="hero"
+          >
               <a 
                 href={`https://wa.me/${waPhone}?text=Hi%20from%20${pageSlug}%20%E2%80%94%20interested%20in%20the%207-Day%20Enquiry%20Engine.`}
                 target="_blank"

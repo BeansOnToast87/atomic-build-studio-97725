@@ -11,6 +11,7 @@ import RadicalTransparency from '@/components/RadicalTransparency';
 import MiniFAQ from '@/components/MiniFAQ';
 import LeadMagnetModal from '@/components/LeadMagnetModal';
 import StickyCTA from '@/components/StickyCTA';
+import ConsentBar from '@/components/ConsentBar';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -36,6 +37,7 @@ const Index = () => {
       
       <LeadMagnetModal />
       <StickyCTA />
+      <ConsentBar />
       
       <footer role="contentinfo" className="w-full">
         <Footer />

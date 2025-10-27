@@ -10,6 +10,9 @@ const StickyCTA = () => {
 
   const handleAuditClick = () => {
     sfga.fire('cta_book_audit_click', {
+      location: 'sticky',
+      page_slug: pageSlug,
+      cta_variant: 'primary',
       page_title: document.title,
       page_location: window.location.href,
       page_path: window.location.pathname
@@ -19,10 +22,12 @@ const StickyCTA = () => {
   const handleWhatsAppClick = () => {
     sfga.fire('cta_whatsapp_click', {
       phone_number: phone,
+      page_slug: pageSlug,
+      location: 'sticky',
+      is_mobile: /Mobi/i.test(navigator.userAgent),
       page_title: document.title,
       page_location: window.location.href,
-      page_path: window.location.pathname,
-      page_slug: pageSlug
+      page_path: window.location.pathname
     });
   };
 
@@ -39,6 +44,8 @@ const StickyCTA = () => {
             onClick={handleAuditClick}
             className="min-h-[44px]"
             data-cta="primary"
+            data-testid="cta-audit"
+            data-loc="sticky"
             asChild
           >
             <a
@@ -56,6 +63,8 @@ const StickyCTA = () => {
             onClick={handleWhatsAppClick}
             className="min-h-[44px]"
             data-cta="whatsapp"
+            data-testid="cta-whatsapp"
+            data-loc="sticky"
             asChild
           >
             <a
