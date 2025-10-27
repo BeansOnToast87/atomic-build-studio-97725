@@ -40,17 +40,17 @@ const LeadMagnetModal = () => {
           <Button
             size="lg"
             className="min-h-[56px] shadow-lg hover:shadow-xl transition-shadow"
-            aria-label="Get Free 10-min Enquiry Audit"
+            aria-label="Get 10-Enquiry Projection Calculator"
           >
             <Calculator className="w-5 h-5 mr-2" />
-            Free Audit
+            Free Calculator
           </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Free 10-min Enquiry Audit</DialogTitle>
+            <DialogTitle>10-Enquiry Projection Calculator</DialogTitle>
             <DialogDescription>
-              Get a short loom + checklist. We email the link.
+              Get the calculator and a 60-sec loom on how to use it.
             </DialogDescription>
           </DialogHeader>
 
@@ -70,13 +70,13 @@ const LeadMagnetModal = () => {
                 />
               </div>
               <Button type="submit" className="w-full min-h-[44px]">
-                Send me the audit
+                Send me the calculator
               </Button>
             </form>
           ) : (
             <div className="py-8 text-center">
               <p className="text-lg font-semibold text-primary">
-                Check your inbox — audit sent.
+                Check your inbox — calculator sent.
               </p>
             </div>
           )}

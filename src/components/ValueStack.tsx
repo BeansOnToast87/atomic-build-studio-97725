@@ -3,10 +3,10 @@ import { Check } from 'lucide-react';
 const ValueStack = () => {
   const items = [
     { label: "7-Day Enquiry Engine build", valueUSD: 1200 },
-    { label: 'Live "tracking is firing" handover', valueUSD: 250 },
-    { label: "10 WhatsApp replies you can paste", valueUSD: 150 },
-    { label: "Lead log + simple automation", valueUSD: 200 },
-    { label: "30-day micro-edits (2×15 min)", valueUSD: 150 }
+    { label: "Live DebugView handover", valueUSD: 250 },
+    { label: "10 WhatsApp reply scripts", valueUSD: 150 },
+    { label: "Lead log + zap install", valueUSD: 200 },
+    { label: "30-day micro-edits (two 15-min tweaks)", valueUSD: 150 }
   ];
 
   const total = items.reduce((sum, item) => sum + item.valueUSD, 0);

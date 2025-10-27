@@ -1,7 +1,7 @@
 const ProofDashboardEmbed = () => {
   const metricsTable = [
-    ["Week", "Calls", "Clicks", "Chats"],
-    ["This week", "—", "—", "—"]
+    ["Week", "Leads", "Calls", "Wins", "Attach Rate (Guard)", "Refunds"],
+    ["W1", "—", "—", "—", "—", "—"]
   ];
 
   return (

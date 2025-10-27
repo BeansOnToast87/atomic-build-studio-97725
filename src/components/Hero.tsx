@@ -30,17 +30,17 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center space-y-6">
           {/* Guarantee Badge */}
           <div className="inline-flex items-center px-4 py-2 bg-primary/10 text-primary border border-primary/20 rounded-full text-sm font-semibold mb-2">
-            Proof or We Pay — refund build + keep working free until GA4 + WhatsApp track
+            Proof or We Pay: GA4 + WhatsApp tracked by Day 7 or refund + we keep working free
           </div>
 
           {/* Headline */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] text-foreground">
-            Get a lead-ready site in 7 days.
+            The 7-Day Enquiry Engine: WhatsApp-First, GA4-Wired Mini-Site (Built-Before-You-Accept).
           </h1>
           
           {/* Subhead */}
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-            We wire WhatsApp + tracking for you. If tracking and messages are not live by Day 7, we refund the build and keep working free.
+            Go live in 7 days with lead capture that actually pings your phone. If GA4 events aren't firing and WhatsApp replies aren't tracked by Day 7, we fix it free <strong>and</strong> refund the build fee.
           </p>
 
           {/* Badges Row */}
@@ -49,7 +49,7 @@ const Hero = () => {
               Lighthouse ≥90
             </span>
             <span className="inline-flex items-center px-3 py-1 rounded-full bg-card border border-border text-sm font-medium">
-              GA4 tracking
+              GA4 Wired
             </span>
             <span className="inline-flex items-center px-3 py-1 rounded-full bg-card border border-border text-sm font-medium">
               7-Day Sprint
