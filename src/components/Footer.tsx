@@ -35,7 +35,7 @@ const Footer = () => {
         <div className="text-center space-y-6">
           <div className="space-y-2">
             <p className="text-sm text-muted-foreground">
-              Manchester/London, AU/UK remote
+              AU/UK remote
             </p>
           </div>
 
@@ -64,10 +64,10 @@ const Footer = () => {
           
           <div className="pt-4 space-y-2 text-xs text-muted-foreground">
             <p>
-              GDPR: cookie/consent banner enabled; GA4 used for essential analytics.
+              Cookie + tracking notice shown on first visit; GA4 used for basic events.
             </p>
             <p>
-              VAT: VAT treatment displayed on invoices for UK/EU buyers.
+              UK/EU: VAT/GST may apply; prices shown exclude VAT unless stated.
             </p>
           </div>
 

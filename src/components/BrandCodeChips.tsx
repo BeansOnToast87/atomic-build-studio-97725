@@ -1,5 +1,9 @@
 const BrandCodeChips = () => {
-  const chips = ["7-Day Sprint", "Proof or We Pay", "WhatsApp-First"];
+  const chips = [
+    "WhatsApp first. Leads go to your phone.",
+    "Tracking on. We count calls, clicks, and chats.",
+    "Built before you accept. See it working first."
+  ];
 
   return (
     <section 
@@ -7,17 +11,17 @@ const BrandCodeChips = () => {
       data-testid="brand-codes"
       id="brand-codes"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap justify-center gap-3">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+        <ul className="space-y-3">
           {chips.map((chip) => (
-            <span
+            <li
               key={chip}
-              className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm border border-primary/20"
+              className="text-center text-base md:text-lg font-medium text-foreground"
             >
               {chip}
-            </span>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );
