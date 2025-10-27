@@ -36,12 +36,12 @@ const Gallery = () => {
               <h3 className="text-lg font-bold">{demo.title}</h3>
               <Button variant="outline" size="lg" onClick={() => handleDemoClick(demo.title, demo.url)} className="min-h-[44px] w-full" asChild>
                 <Link to={demo.url} aria-label={`View ${demo.title}`}>
-                  View demo
+                  View demo →
                 </Link>
               </Button>
               <Button variant="ghost" size="sm" className="min-h-[44px] w-full" asChild>
                 <Link to="/proof/gifs">
-                  See proof
+                  See proof →
                 </Link>
               </Button>
             </article>)}
