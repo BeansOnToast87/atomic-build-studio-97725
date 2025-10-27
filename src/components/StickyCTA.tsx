@@ -4,8 +4,9 @@ import { sfga } from '@/lib/analytics';
 
 const StickyCTA = () => {
   const phone = "+61436275470";
+  const waPhone = "61436275470"; // digits-only for wa.me
   const schedulerUrl = "https://calendly.com/hello-prooflaunchstudio";
-  const pageSlug = window.location.pathname.replace(/\//g, '') || 'home';
+  const pageSlug = window.location.pathname === '/' ? 'home' : window.location.pathname.replace(/^\//, '').replace(/\/+/g, '-');
 
   const handleAuditClick = () => {
     sfga.fire('cta_book_audit_click', {
@@ -58,7 +59,7 @@ const StickyCTA = () => {
             asChild
           >
             <a
-              href={`https://wa.me/${phone}?text=Hi%20from%20${pageSlug}%20%E2%80%94%20interested%20in%20the%207-Day%20Enquiry%20Engine.`}
+              href={`https://wa.me/${waPhone}?text=Hi%20from%20${pageSlug}%20%E2%80%94%20interested%20in%20the%207-Day%20Enquiry%20Engine.`}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp the agency"

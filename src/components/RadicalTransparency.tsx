@@ -25,9 +25,8 @@ const RadicalTransparency = () => {
 
           <div className="prose prose-sm max-w-none">
             <p className="text-base leading-relaxed text-foreground">
-              We're a pre-client studio building public proof. Pilot pricing applies to the first <strong>10 builds</strong>. 
-              We publish: Lighthouse scores, live GA4 DebugView "events fired," and a time-lapse of the 7-day sprint. 
-              "Vibe-coding" means we ship daily, record the build stream, and hand over a checklist you can audit.
+              We are a new studio. We build a working preview before you accept. You only keep it if you like it. 
+              "Vibe coding" means we use simple blocks and ship fast.
             </p>
           </div>
         </div>

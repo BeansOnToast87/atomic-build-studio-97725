@@ -2,8 +2,9 @@ import { sfga } from '@/lib/analytics';
 
 const Footer = () => {
   const phone = "+61436275470";
+  const waPhone = "61436275470"; // digits-only for wa.me
   const email = "hello@prooflaunchstudio.com";
-  const pageSlug = window.location.pathname.replace(/\//g, '') || 'home';
+  const pageSlug = window.location.pathname === '/' ? 'home' : window.location.pathname.replace(/^\//, '').replace(/\/+/g, '-');
 
   const handleEmailClick = () => {
     sfga.fire('email_click', {
@@ -35,7 +36,7 @@ const Footer = () => {
         <div className="text-center space-y-6">
           <div className="space-y-2">
             <p className="text-sm text-muted-foreground">
-              Manchester/London, AU/UK remote
+              AU/UK remote
             </p>
           </div>
 
@@ -50,7 +51,7 @@ const Footer = () => {
             </a>
             <span className="text-muted-foreground">•</span>
             <a
-              href={`https://wa.me/${phone}?text=Hi%20from%20${pageSlug}%20%E2%80%94%20interested%20in%20the%207-Day%20Enquiry%20Engine.`}
+              href={`https://wa.me/${waPhone}?text=Hi%20from%20${pageSlug}%20%E2%80%94%20interested%20in%20the%207-Day%20Enquiry%20Engine.`}
               onClick={handleWhatsAppClick}
               target="_blank"
               rel="noopener noreferrer"
@@ -64,10 +65,10 @@ const Footer = () => {
           
           <div className="pt-4 space-y-2 text-xs text-muted-foreground">
             <p>
-              GDPR: cookie/consent banner enabled; GA4 used for essential analytics.
+              Cookie + tracking notice shown on first visit; GA4 used for basic events.
             </p>
             <p>
-              VAT: VAT treatment displayed on invoices for UK/EU buyers.
+              UK/EU: VAT/GST may apply; prices shown exclude VAT unless stated.
             </p>
           </div>
 

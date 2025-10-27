@@ -1,5 +1,9 @@
 const BrandCodeChips = () => {
-  const chips = ["7-Day Sprint", "Proof or We Pay", "WhatsApp-First"];
+  const chips = [
+    "WhatsApp first. Leads go to your phone.",
+    "Tracking on. We count calls, clicks, and chats.",
+    "Built before you accept. See it working first."
+  ];
 
   return (
     <section 

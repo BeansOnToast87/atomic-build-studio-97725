@@ -16,9 +16,10 @@ const PricingTierCards = () => {
       balanceOnDay1: 790,
       mostPopular: false,
       features: [
-        "1 landing page + WhatsApp CTA + GA4 conversions (3 events)",
-        "Go-live ≤ 7 days; Lighthouse ≥ 90",
-        "First enquiry within 7 days (scripts provided)"
+        "Live in 7 days; Lighthouse 90+",
+        "1 landing page + WhatsApp CTA",
+        "Google tracking so clicks are counted (3 events)",
+        "First enquiry in 7 days (scripts provided)"
       ]
     },
     {
@@ -30,9 +31,9 @@ const PricingTierCards = () => {
       mostPopular: true,
       features: [
         "Everything in Proto",
-        "A/B hero variant, SMS follow-up template",
-        "Booking button + calendar",
-        "KPI: 10 tracked events; 3+ 'reply-worthy' enquiries in 14 days"
+        "A/B hero, booking button",
+        "Simple follow-up template (SMS)",
+        "KPI: 10+ tracked actions; 3+ enquiries in 14 days (you bring traffic)"
       ]
     },
     {
@@ -44,9 +45,9 @@ const PricingTierCards = () => {
       mostPopular: false,
       features: [
         "Everything in Growth",
-        "Second offer page; retargeting pixel install",
-        "30-day analytics check-ins (weekly loom)",
-        "KPI: 20+ tracked events; weekly report + actions"
+        "Second page, retarget pixel",
+        "Weekly check-ins for 30 days (loom)",
+        "KPI: 20+ tracked actions; weekly report + fixes"
       ]
     }
   ];
@@ -107,7 +108,7 @@ const PricingTierCards = () => {
             </button>
           </div>
           <p className="text-sm text-muted-foreground">
-            Hosting handoff, uptime ping, monthly GA4 snapshot, 1 minor edit/mo, priority WhatsApp support.
+            Checks monthly, small fixes, 1 minor edit/mo, GA4 snapshot, WhatsApp priority.
           </p>
         </div>
 
@@ -132,12 +133,12 @@ const PricingTierCards = () => {
               <div className="mb-6">
                 <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
                 <div className="flex items-baseline gap-1 mb-2">
-                  <span className="text-4xl font-bold font-variant-numeric-tabular">
+                  <span className="text-4xl font-bold" style={{ fontVariantNumeric: 'tabular-nums', minWidth: '120px' }}>
                     ${tier.price.toLocaleString()}
                   </span>
                 </div>
-                <p className="text-sm text-muted-foreground">
-                  Deposit <strong className="font-variant-numeric-tabular">${tier.deposit}</strong> to reserve; <strong className="font-variant-numeric-tabular">${tier.balanceOnDay1}</strong> due Day-1 kickoff
+                <p className="text-sm text-muted-foreground" style={{ fontVariantNumeric: 'tabular-nums' }}>
+                  Deposit <strong>${tier.deposit}</strong> today; <strong>${tier.balanceOnDay1}</strong> due Day-1
                 </p>
                 <p className="text-xs text-muted-foreground mt-2">
                   Rush fee: +{rushFeePercent}% for 48-hour build window
