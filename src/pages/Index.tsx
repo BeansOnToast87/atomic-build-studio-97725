@@ -4,8 +4,10 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import BrandCodeChips from '@/components/BrandCodeChips';
 import ValueStack from '@/components/ValueStack';
+import CurrencySelector from '@/components/CurrencySelector';
 import PricingTierCards from '@/components/PricingTierCards';
 import Gallery from '@/components/Gallery';
+import { useCurrency } from '@/lib/currency';
 import ProofDashboardEmbed from '@/components/ProofDashboardEmbed';
 import RadicalTransparency from '@/components/RadicalTransparency';
 import MiniFAQ from '@/components/MiniFAQ';
@@ -15,6 +17,8 @@ import ConsentBar from '@/components/ConsentBar';
 import Footer from '@/components/Footer';
 
 const Index = () => {
+  const { currency, updateCurrency, isLoading } = useCurrency();
+  
   useEffect(() => {
     // Initialize analytics helper
     sfga.flushQueue();
@@ -28,6 +32,7 @@ const Index = () => {
         <Hero />
         <BrandCodeChips />
         <ValueStack />
+        <CurrencySelector value={currency} onChange={updateCurrency} disabled={isLoading} />
         <PricingTierCards />
         <Gallery />
         <ProofDashboardEmbed />
