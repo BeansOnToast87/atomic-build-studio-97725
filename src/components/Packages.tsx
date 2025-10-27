@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { sfga } from '@/lib/analytics';
+import { useCurrency, convertPrice, formatPrice, hasRate } from '@/lib/currency';
 
 const packages = [
   {
@@ -43,6 +44,7 @@ const packages = [
 
 const Packages = () => {
   const [currency, setCurrency] = useState<'USD' | 'GBP'>('USD');
+  const { currency: detectedCurrency, rates, isLoading } = useCurrency();
   
   const handleAuditClick = () => {
     sfga.fire('audit_click', {
@@ -128,7 +130,7 @@ const Packages = () => {
         </div>
         
         <p className="text-center text-sm text-muted-foreground mb-8">
-          100% upfront to reserve your 7-day slot. Fast-Track 3-day +{currency === 'USD' ? '$250' : '£197'}.
+          100% upfront to reserve your 7-day slot. Fast-Track 3-day +{hasRate(detectedCurrency, rates) && !isLoading ? formatPrice(convertPrice(250, detectedCurrency, rates), detectedCurrency) : '$250'}.
         </p>
         
         <div className="flex justify-center">

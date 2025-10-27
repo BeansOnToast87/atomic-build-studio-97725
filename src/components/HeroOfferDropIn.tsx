@@ -1,6 +1,8 @@
 import React from "react";
+import { useCurrency, convertPrice, formatPrice, hasRate } from "@/lib/currency";
 
 export default function HeroOfferDropIn() {
+  const { currency, rates, isLoading } = useCurrency();
   const fire = (name: string, params: Record<string, any>) => {
     // guard for global helper
     // @ts-ignore
@@ -147,7 +149,7 @@ export default function HeroOfferDropIn() {
                 Book 10-min audit
               </a>
               <p className="cta-note">
-                Reserve a 7-day build slot (100% upfront). Fast-Track 3-day +$250.
+                Reserve a 7-day build slot (100% upfront). Fast-Track 3-day +{hasRate(currency, rates) && !isLoading ? formatPrice(convertPrice(250, currency, rates), currency) : '$250'}.
               </p>
             </div>
           </div>

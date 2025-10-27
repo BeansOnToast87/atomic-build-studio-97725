@@ -1,5 +1,24 @@
 import { Check } from 'lucide-react';
+import { useCurrency, convertPrice, formatPrice, hasRate } from "@/lib/currency";
+
 const ValueStack = () => {
+  const { currency, rates, isLoading } = useCurrency();
+  
+  // Helper functions for concise formatting
+  const fmtUSD = (n: number) => `$${n.toLocaleString()}`;
+  const fmtLocal = (usd: number) => 
+    formatPrice(convertPrice(usd, currency, rates), currency);
+  const canConvert = hasRate(currency, rates) && !isLoading;
+  
+  // USD baseline values
+  const V1 = 1200;  // Enquiry Engine build
+  const V2 = 250;   // Live handover
+  const V3 = 150;   // WhatsApp replies
+  const V4 = 200;   // Lead log
+  const V5 = 150;   // Micro-edits
+  const TOTAL = V1 + V2 + V3 + V4 + V5; // 1950
+  const START_FROM = 990;
+  
   const items = [{
     label: "7-Day Enquiry Engine build",
     valueUSD: 1200
@@ -30,7 +49,7 @@ const ValueStack = () => {
                 <div className="flex-1 flex justify-between items-baseline gap-4">
                   <span className="text-base">{item.label}</span>
                   <span className="text-sm font-semibold text-muted-foreground whitespace-nowrap font-variant-numeric-tabular">
-                    ${item.valueUSD.toLocaleString()} value
+                    {canConvert ? fmtLocal(item.valueUSD) : fmtUSD(item.valueUSD)} value
                   </span>
                 </div>
               </li>)}
@@ -38,7 +57,7 @@ const ValueStack = () => {
           
           <div className="border-t border-border pt-4 mt-4">
             <p className="text-lg md:text-xl font-bold text-center">
-              Total value ${total.toLocaleString()} — Today from $990
+              Total value {canConvert ? fmtLocal(TOTAL) : fmtUSD(TOTAL)} — Today from {canConvert ? fmtLocal(START_FROM) : fmtUSD(START_FROM)}
             </p>
           </div>
         </div>
