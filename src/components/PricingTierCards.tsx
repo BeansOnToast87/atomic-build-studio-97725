@@ -156,6 +156,23 @@ const PricingTierCards = () => {
         <p className="text-sm text-center text-muted-foreground mt-4 max-w-2xl mx-auto">
           Displayed in your local currency for clarity. Final charge is processed in USD.
         </p>
+        
+        {/* FX Rate Timestamp - only show for non-USD */}
+        {currency !== 'USD' && (
+          <p className="text-xs text-center text-muted-foreground mt-2" data-testid="fx-last-updated">
+            Rates last updated: {(() => {
+              try {
+                const ts = localStorage.getItem('fx_rates_USD_last_updated');
+                return new Date(ts || Date.now()).toLocaleString(undefined, {
+                  dateStyle: 'short',
+                  timeStyle: 'short'
+                });
+              } catch {
+                return 'recently';
+              }
+            })()}
+          </p>
+        )}
       </div>
     </section>;
 };

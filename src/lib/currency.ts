@@ -4,7 +4,7 @@ export type SupportedCurrency = 'USD' | 'GBP' | 'EUR' | 'CAD' | 'AUD' | 'NZD' | 
 
 const CACHE_KEY_RATES = 'fx_rates_USD';
 const CACHE_KEY_OVERRIDE = 'currency_override';
-const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours
+const CACHE_TTL = 6 * 60 * 60 * 1000;  // 6 hours
 
 interface CachedRates {
   ts: number;
@@ -103,10 +103,15 @@ export async function fetchExchangeRates(): Promise<Record<string, number>> {
 
   // Cache the rates (even if empty)
   try {
+    const ts = Date.now();
     localStorage.setItem(CACHE_KEY_RATES, JSON.stringify({
-      ts: Date.now(),
+      ts,
       rates
     }));
+    // Store human-readable timestamp for UI display
+    try {
+      localStorage.setItem('fx_rates_USD_last_updated', new Date(ts).toISOString());
+    } catch {}
   } catch (e) {
     // Cache write failed
   }
