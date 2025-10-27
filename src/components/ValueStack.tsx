@@ -1,31 +1,31 @@
 import { Check } from 'lucide-react';
-
 const ValueStack = () => {
-  const items = [
-    { label: "7-Day Enquiry Engine build", valueUSD: 1200 },
-    { label: "Live \"tracking is firing\" handover", valueUSD: 250 },
-    { label: "10 WhatsApp replies you can paste", valueUSD: 150 },
-    { label: "Lead log + simple automation", valueUSD: 200 },
-    { label: "30-day micro-edits (2×15 min)", valueUSD: 150 }
-  ];
-
+  const items = [{
+    label: "7-Day Enquiry Engine build",
+    valueUSD: 1200
+  }, {
+    label: "Live \"tracking is firing\" handover",
+    valueUSD: 250
+  }, {
+    label: "10 WhatsApp replies you can paste",
+    valueUSD: 150
+  }, {
+    label: "Lead log + simple automation",
+    valueUSD: 200
+  }, {
+    label: "30-day micro-edits (2×15 min)",
+    valueUSD: 150
+  }];
   const total = items.reduce((sum, item) => sum + item.valueUSD, 0);
-
-  return (
-    <section 
-      className="w-full py-16 md:py-20 bg-background" 
-      data-testid="value-stack"
-      id="value-stack"
-    >
+  return <section className="w-full py-16 md:py-20 bg-background" data-testid="value-stack" id="value-stack">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-500">
           What You Get
         </h2>
         
         <div className="bg-card border border-border rounded-lg p-6 md:p-8">
           <ul className="space-y-4 mb-6">
-            {items.map((item) => (
-              <li key={item.label} className="flex items-start gap-3">
+            {items.map(item => <li key={item.label} className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-primary flex-shrink-0 mt-1" aria-hidden="true" />
                 <div className="flex-1 flex justify-between items-baseline gap-4">
                   <span className="text-base">{item.label}</span>
@@ -33,8 +33,7 @@ const ValueStack = () => {
                     ${item.valueUSD.toLocaleString()} value
                   </span>
                 </div>
-              </li>
-            ))}
+              </li>)}
           </ul>
           
           <div className="border-t border-border pt-4 mt-4">
@@ -44,8 +43,6 @@ const ValueStack = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ValueStack;

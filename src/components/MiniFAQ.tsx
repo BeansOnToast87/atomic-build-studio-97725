@@ -1,19 +1,24 @@
 import React from "react";
-
 export default function MiniFAQ() {
   const book = () => {
     // @ts-ignore
-    window.sfga?.fire?.("audit_click", { event_category:"conversion", dest:"calendly", page_location: window.location.href });
+    window.sfga?.fire?.("audit_click", {
+      event_category: "conversion",
+      dest: "calendly",
+      page_location: window.location.href
+    });
   };
   const wa = () => {
     // @ts-ignore
-    window.sfga?.fire?.("whatsapp_click", { event_category:"conversion", phone_number:"+61436275470", page_location: window.location.href });
+    window.sfga?.fire?.("whatsapp_click", {
+      event_category: "conversion",
+      phone_number: "+61436275470",
+      page_location: window.location.href
+    });
   };
-
-  return (
-    <section id="faq" aria-labelledby="faq-title" className="section" data-testid="faq">
+  return <section id="faq" aria-labelledby="faq-title" className="section" data-testid="faq">
       <div className="container">
-        <h2 id="faq-title">FAQ — quick answers</h2>
+        <h2 id="faq-title" className="text-slate-500">FAQ — quick answers</h2>
 
         <div className="faq-grid">
           <details>
@@ -90,24 +95,10 @@ export default function MiniFAQ() {
         </div>
 
         <div className="faq-cta">
-          <a
-            className="btn"
-            href="https://calendly.com/hello-prooflaunchstudio"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Book a 10-minute website audit"
-            onClick={book}
-          >
+          <a className="btn" href="https://calendly.com/hello-prooflaunchstudio" target="_blank" rel="noopener noreferrer" aria-label="Book a 10-minute website audit" onClick={book}>
             Book 10-min audit
           </a>
-          <a
-            className="btn btn-light"
-            href="https://wa.me/61436275470"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="WhatsApp the agency"
-            onClick={wa}
-          >
+          <a className="btn btn-light" href="https://wa.me/61436275470" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp the agency" onClick={wa}>
             WhatsApp us
           </a>
         </div>
@@ -180,6 +171,5 @@ export default function MiniFAQ() {
           .btn-light { background:#162033; color:#F6F8FF; border-color:#243043; }
         }
       `}</style>
-    </section>
-  );
+    </section>;
 }

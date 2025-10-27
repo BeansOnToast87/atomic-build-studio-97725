@@ -1,17 +1,8 @@
 const ProofDashboardEmbed = () => {
-  const metricsTable = [
-    ["Week", "Calls", "Clicks", "Chats"],
-    ["This week", "—", "—", "—"]
-  ];
-
-  return (
-    <section 
-      className="w-full py-16 md:py-20 bg-background" 
-      data-testid="proof-dashboard"
-      id="proof-dashboard"
-    >
+  const metricsTable = [["Week", "Calls", "Clicks", "Chats"], ["This week", "—", "—", "—"]];
+  return <section className="w-full py-16 md:py-20 bg-background" data-testid="proof-dashboard" id="proof-dashboard">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-slate-500">
           Live Proof Dashboard
         </h2>
 
@@ -30,35 +21,21 @@ const ProofDashboardEmbed = () => {
           <table className="w-full border border-border rounded-lg overflow-hidden">
             <thead>
               <tr className="bg-muted">
-                {metricsTable[0].map((header) => (
-                  <th
-                    key={header}
-                    className="px-4 py-3 text-left text-sm font-semibold border-b border-border"
-                  >
+                {metricsTable[0].map(header => <th key={header} className="px-4 py-3 text-left text-sm font-semibold border-b border-border">
                     {header}
-                  </th>
-                ))}
+                  </th>)}
               </tr>
             </thead>
             <tbody>
-              {metricsTable.slice(1).map((row, idx) => (
-                <tr key={idx} className="border-b border-border last:border-0">
-                  {row.map((cell, cellIdx) => (
-                    <td
-                      key={cellIdx}
-                      className="px-4 py-3 text-sm font-variant-numeric-tabular"
-                    >
+              {metricsTable.slice(1).map((row, idx) => <tr key={idx} className="border-b border-border last:border-0">
+                  {row.map((cell, cellIdx) => <td key={cellIdx} className="px-4 py-3 text-sm font-variant-numeric-tabular">
                       {cell}
-                    </td>
-                  ))}
-                </tr>
-              ))}
+                    </td>)}
+                </tr>)}
             </tbody>
           </table>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ProofDashboardEmbed;
