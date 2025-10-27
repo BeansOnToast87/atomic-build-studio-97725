@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export type SupportedCurrency = 'USD' | 'GBP' | 'EUR' | 'CAD' | 'AUD' | 'NZD' | 'INR' | 'SGD' | 'ZAR';
+export type SupportedCurrency = 'USD' | 'GBP' | 'EUR' | 'CAD' | 'AUD' | 'NZD' | 'INR' | 'SGD' | 'ZAR' | 'MYR';
 
 const CACHE_KEY_RATES = 'fx_rates_USD';
 const CACHE_KEY_OVERRIDE = 'currency_override';
@@ -41,6 +41,7 @@ export async function detectUserCurrency(): Promise<SupportedCurrency> {
   if (lang.endsWith('-IN')) return 'INR';
   if (lang.endsWith('-SG')) return 'SGD';
   if (lang.endsWith('-ZA')) return 'ZAR';
+  if (lang.endsWith('-MY')) return 'MYR';
   
   return 'USD';
 }
@@ -108,7 +109,7 @@ export function formatPrice(amount: number, currency: SupportedCurrency): string
 }
 
 function isSupportedCurrency(code: string): boolean {
-  return ['USD', 'GBP', 'EUR', 'CAD', 'AUD', 'NZD', 'INR', 'SGD', 'ZAR'].includes(code);
+  return ['USD', 'GBP', 'EUR', 'CAD', 'AUD', 'NZD', 'INR', 'SGD', 'ZAR', 'MYR'].includes(code);
 }
 
 export function useCurrency() {
@@ -134,8 +135,26 @@ export function useCurrency() {
 
     init();
 
+    const onStorage = (e: StorageEvent) => {
+      if (e.key === CACHE_KEY_OVERRIDE && e.newValue && isSupportedCurrency(e.newValue.toUpperCase())) {
+        setCurrency(e.newValue.toUpperCase() as SupportedCurrency);
+      }
+    };
+
+    const onCustom = (e: Event) => {
+      const detail = (e as CustomEvent).detail;
+      if (typeof detail === 'string' && isSupportedCurrency(detail.toUpperCase())) {
+        setCurrency(detail.toUpperCase() as SupportedCurrency);
+      }
+    };
+
+    window.addEventListener('storage', onStorage);
+    window.addEventListener('currency_override_changed', onCustom as EventListener);
+
     return () => {
       mounted = false;
+      window.removeEventListener('storage', onStorage);
+      window.removeEventListener('currency_override_changed', onCustom as EventListener);
     };
   }, []);
 
@@ -146,6 +165,11 @@ export function useCurrency() {
       // localStorage not available
     }
     setCurrency(newCurrency);
+    try {
+      window.dispatchEvent(new CustomEvent('currency_override_changed', { detail: newCurrency }));
+    } catch (e) {
+      // Custom event not supported
+    }
   };
 
   return { currency, rates, isLoading, updateCurrency };

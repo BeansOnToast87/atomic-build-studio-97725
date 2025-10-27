@@ -8,7 +8,7 @@ interface CurrencySelectorProps {
 
 const CurrencySelector = ({ value, onChange, disabled }: CurrencySelectorProps) => {
   const currencies: SupportedCurrency[] = [
-    'USD', 'GBP', 'EUR', 'CAD', 'AUD', 'NZD', 'INR', 'SGD', 'ZAR'
+    'USD', 'GBP', 'EUR', 'CAD', 'AUD', 'NZD', 'INR', 'SGD', 'ZAR', 'MYR'
   ];
 
   return (
