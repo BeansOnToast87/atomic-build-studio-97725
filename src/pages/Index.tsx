@@ -1,12 +1,15 @@
 import { useEffect } from 'react';
 import { sfga } from '@/lib/analytics';
 import Header from '@/components/Header';
-import HeroOfferDropIn from '@/components/HeroOfferDropIn';
-import DemoGallery from '@/components/DemoGallery';
-import ProofScreenshots from '@/components/ProofScreenshots';
-import Packages from '@/components/Packages';
+import Hero from '@/components/Hero';
+import BrandCodeChips from '@/components/BrandCodeChips';
+import ValueStack from '@/components/ValueStack';
+import PricingTierCards from '@/components/PricingTierCards';
+import Gallery from '@/components/Gallery';
+import ProofDashboardEmbed from '@/components/ProofDashboardEmbed';
+import RadicalTransparency from '@/components/RadicalTransparency';
 import MiniFAQ from '@/components/MiniFAQ';
-import TrustRow from '@/components/TrustRow';
+import LeadMagnetModal from '@/components/LeadMagnetModal';
 import StickyCTA from '@/components/StickyCTA';
 import Footer from '@/components/Footer';
 
@@ -21,14 +24,17 @@ const Index = () => {
       <Header />
       
       <main role="main" className="min-h-screen">
-        <HeroOfferDropIn />
-        <DemoGallery />
-        <ProofScreenshots />
-        <Packages />
+        <Hero />
+        <BrandCodeChips />
+        <ValueStack />
+        <PricingTierCards />
+        <Gallery />
+        <ProofDashboardEmbed />
+        <RadicalTransparency />
         <MiniFAQ />
-        <TrustRow />
       </main>
       
+      <LeadMagnetModal />
       <StickyCTA />
       
       <footer role="contentinfo" className="w-full">

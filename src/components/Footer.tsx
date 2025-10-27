@@ -1,48 +1,89 @@
 import { sfga } from '@/lib/analytics';
 
 const Footer = () => {
+  const phone = "+61436275470";
+  const email = "hello@prooflaunchstudio.com";
+  const pageSlug = window.location.pathname.replace(/\//g, '') || 'home';
+
   const handleEmailClick = () => {
     sfga.fire('email_click', {
       event_category: 'conversion',
-      email: 'hello@prooflaunchstudio.com',
+      email,
+      page_title: document.title,
       page_location: window.location.href,
+      page_path: window.location.pathname
+    });
+  };
+
+  const handleWhatsAppClick = () => {
+    sfga.fire('cta_whatsapp_click', {
+      phone_number: phone,
+      page_title: document.title,
+      page_location: window.location.href,
+      page_path: window.location.pathname,
+      page_slug: pageSlug
     });
   };
 
   return (
-    <div className="w-full py-8 md:py-12 px-4 bg-muted/30">
+    <div 
+      className="w-full py-8 md:py-12 px-4 bg-muted/30" 
+      data-testid="footer"
+      id="footer"
+    >
       <div className="container mx-auto max-w-4xl">
-        <div className="text-center space-y-4">
+        <div className="text-center space-y-6">
           <div className="space-y-2">
             <p className="text-sm text-muted-foreground">
-              7-day launch or build fee = $0.
-            </p>
-            <p className="text-sm text-muted-foreground">
-              ~45–60 minutes of your time; we handle the rest.
+              Manchester/London, AU/UK remote
             </p>
           </div>
-          
-          <div className="pt-4">
-            <p className="text-sm text-muted-foreground">
-              © Proof Launch Studio •{' '}
-              <a
-                href="mailto:hello@prooflaunchstudio.com"
-                onClick={handleEmailClick}
-                className="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded"
-                aria-label="Email the agency"
-              >
-                hello@prooflaunchstudio.com
-              </a>
-            </p>
+
+          <div className="flex flex-wrap justify-center gap-4 items-center">
+            <a
+              href={`mailto:${email}`}
+              onClick={handleEmailClick}
+              className="text-sm hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded px-2 py-1"
+              aria-label="Email the agency"
+            >
+              {email}
+            </a>
+            <span className="text-muted-foreground">•</span>
+            <a
+              href={`https://wa.me/${phone}?text=Hi%20from%20${pageSlug}%20%E2%80%94%20interested%20in%20the%207-Day%20Enquiry%20Engine.`}
+              onClick={handleWhatsAppClick}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded px-2 py-1"
+              aria-label="WhatsApp the agency"
+              data-cta="whatsapp"
+            >
+              WhatsApp: {phone}
+            </a>
           </div>
           
-          <div>
+          <div className="pt-4 space-y-2 text-xs text-muted-foreground">
+            <p>
+              GDPR: cookie/consent banner enabled; GA4 used for essential analytics.
+            </p>
+            <p>
+              VAT: VAT treatment displayed on invoices for UK/EU buyers.
+            </p>
+          </div>
+
+          <div className="pt-2">
             <a
               href="/privacy"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded"
             >
               Privacy Policy
             </a>
+          </div>
+
+          <div className="pt-2">
+            <p className="text-xs text-muted-foreground">
+              © Proof Launch Studio
+            </p>
           </div>
         </div>
       </div>

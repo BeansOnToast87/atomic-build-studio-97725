@@ -11,21 +11,32 @@ export default function MiniFAQ() {
   };
 
   return (
-    <section id="faq" aria-labelledby="faq-title" className="section">
+    <section id="faq" aria-labelledby="faq-title" className="section" data-testid="faq">
       <div className="container">
         <h2 id="faq-title">FAQ — quick answers</h2>
 
         <div className="faq-grid">
           <details>
             <summary>
-              What if you miss the 7-day launch?
+              What if we miss the 7-day launch?
               <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
               </svg>
             </summary>
             <div>
-              If we miss Day 7, you don't pay the build fee. Simple. We'll still finish and hand over,
-              but the build fee becomes $0 (you'll only ever cover any optional pass-through costs).
+              We refund the build and keep working free until GA4 + WhatsApp track as promised.
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              Do I need to write copy?
+              <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </summary>
+            <div>
+              No. We draft it; you approve. You just share 3 services and prices.
             </div>
           </details>
 
@@ -37,21 +48,19 @@ export default function MiniFAQ() {
               </svg>
             </summary>
             <div>
-              ~45–60 minutes total: a short intake, your logo/brand colors (optional),
-              and 3–5 service photos. We write/structure the page, wire GA4, and ship.
+              Logo (or we mock), 3 photos, services/prices, WhatsApp number, domain access.
             </div>
           </details>
 
           <details>
             <summary>
-              How soon can you start?
+              How soon can I start?
               <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
               </svg>
             </summary>
             <div>
-              We hold <strong>2 build slots per week</strong>. Need it faster?
-              Add <em>Fast-Track (3-day)</em> for +$250, subject to current slot availability.
+              Pick a slot, pay the deposit, 48-hour rush available (+30%).
             </div>
           </details>
         </div>
