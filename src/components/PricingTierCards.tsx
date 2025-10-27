@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { sfga } from '@/lib/analytics';
-import { useCurrency, convertPrice, formatPrice } from '@/lib/currency';
+import { useCurrency, convertPrice, formatPrice, hasRate } from '@/lib/currency';
 import { Skeleton } from '@/components/ui/skeleton';
 const PricingTierCards = () => {
   const [proofGuardPlan, setProofGuardPlan] = useState<'monthly' | 'annual'>('monthly');
@@ -66,10 +66,10 @@ const PricingTierCards = () => {
           <h3 className="font-bold mb-3">Proof Guard — Ongoing Support</h3>
           <div className="flex gap-2 mb-4">
             <button onClick={() => setProofGuardPlan('monthly')} className={`flex-1 px-4 py-2 rounded-md font-semibold transition-all min-h-[44px] ${proofGuardPlan === 'monthly' ? 'bg-primary text-primary-foreground shadow-sm' : 'bg-muted text-muted-foreground hover:text-foreground'}`} aria-pressed={proofGuardPlan === 'monthly'}>
-              {isLoading ? <Skeleton className="h-5 w-16 inline-block" /> : formatPrice(convertPrice(99, currency, rates), currency)}/mo
+              {isLoading ? <Skeleton className="h-5 w-16 inline-block" /> : (hasRate(currency, rates) ? formatPrice(convertPrice(99, currency, rates), currency) : '$99')}/mo
             </button>
             <button onClick={() => setProofGuardPlan('annual')} className={`flex-1 px-4 py-2 rounded-md font-semibold transition-all min-h-[44px] ${proofGuardPlan === 'annual' ? 'bg-primary text-primary-foreground shadow-sm' : 'bg-muted text-muted-foreground hover:text-foreground'}`} aria-pressed={proofGuardPlan === 'annual'}>
-              {isLoading ? <Skeleton className="h-5 w-16 inline-block" /> : formatPrice(convertPrice(990, currency, rates), currency)}/yr <span className="text-xs">(save 2 months)</span>
+              {isLoading ? <Skeleton className="h-5 w-16 inline-block" /> : (hasRate(currency, rates) ? formatPrice(convertPrice(990, currency, rates), currency) : '$990')}/yr <span className="text-xs">(save 2 months)</span>
             </button>
           </div>
           <p className="text-sm text-muted-foreground">
@@ -87,9 +87,10 @@ const PricingTierCards = () => {
         {/* Tier Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8">
           {tiers.map(tier => {
-            const displayPrice = convertPrice(tier.price, currency, rates);
-            const displayDeposit = convertPrice(tier.deposit, currency, rates);
-            const displayBalance = convertPrice(tier.balanceOnDay1, currency, rates);
+            const canConvert = hasRate(currency, rates);
+            const priceLocal = canConvert ? convertPrice(tier.price, currency, rates) : tier.price;
+            const depositLocal = canConvert ? convertPrice(tier.deposit, currency, rates) : tier.deposit;
+            const balanceLocal = canConvert ? convertPrice(tier.balanceOnDay1, currency, rates) : tier.balanceOnDay1;
             
             return <article key={tier.id} id={tier.id} className={`bg-card rounded-lg p-6 md:p-8 flex flex-col ${tier.mostPopular ? 'border-2 border-primary shadow-lg relative' : 'border border-border'}`}>
               {tier.mostPopular && <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold">
@@ -103,13 +104,13 @@ const PricingTierCards = () => {
                 fontVariantNumeric: 'tabular-nums',
                 minWidth: '120px'
               }}>
-                    {isLoading ? <Skeleton className="h-10 w-32 inline-block" /> : formatPrice(displayPrice, currency)}
+                    {isLoading ? <Skeleton className="h-10 w-32 inline-block" /> : (canConvert ? formatPrice(priceLocal, currency) : `$${tier.price.toLocaleString()}`)}
                   </span>
                 </div>
                 <p className="text-sm text-muted-foreground" style={{
               fontVariantNumeric: 'tabular-nums'
             }}>
-                  Deposit <strong>{isLoading ? <Skeleton className="h-4 w-12 inline-block" /> : formatPrice(displayDeposit, currency)}</strong> today; <strong>{isLoading ? <Skeleton className="h-4 w-12 inline-block" /> : formatPrice(displayBalance, currency)}</strong> due Day-1
+                  Deposit <strong>{isLoading ? <Skeleton className="h-4 w-12 inline-block" /> : (canConvert ? formatPrice(depositLocal, currency) : `$${tier.deposit.toLocaleString()}`)}</strong> today; <strong>{isLoading ? <Skeleton className="h-4 w-12 inline-block" /> : (canConvert ? formatPrice(balanceLocal, currency) : `$${tier.balanceOnDay1.toLocaleString()}`)}</strong> due Day-1
                 </p>
                 <p className="text-xs text-muted-foreground mt-2">
                   Rush fee: +{rushFeePercent}% for 48-hour build window
@@ -132,8 +133,8 @@ const PricingTierCards = () => {
                 data-tier={tier.name.toLowerCase().replace(' ', '-')}
                 data-price={tier.price}
                 data-deposit={tier.deposit}
-                data-price-local={Math.round(displayPrice)}
-                data-deposit-local={Math.round(displayDeposit)}
+                data-price-local={Math.round(priceLocal)}
+                data-deposit-local={Math.round(depositLocal)}
                 data-currency={currency}
                 data-rush="false"
                 asChild

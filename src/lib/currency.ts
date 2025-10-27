@@ -46,13 +46,37 @@ export async function detectUserCurrency(): Promise<SupportedCurrency> {
   return 'USD';
 }
 
+function normalizeRates(obj: any): Record<string, number> {
+  const out: Record<string, number> = {};
+  if (obj && typeof obj === "object") {
+    for (const k of Object.keys(obj)) {
+      const key = k.toUpperCase();
+      const v = Number(obj[k]);
+      if (Number.isFinite(v)) out[key] = v;
+    }
+  }
+  return out;
+}
+
+async function fetchFromExchangerateHost(): Promise<Record<string, number>> {
+  const r = await fetch("https://api.exchangerate.host/latest?base=USD");
+  const j = await r.json();
+  return normalizeRates(j?.rates);
+}
+
+async function fetchFromErApi(): Promise<Record<string, number>> {
+  const r = await fetch("https://open.er-api.com/v6/latest/USD");
+  const j = await r.json();
+  return normalizeRates(j?.rates);
+}
+
 export async function fetchExchangeRates(): Promise<Record<string, number>> {
+  // Check cache first
   try {
-    // Check cache first
     const cached = localStorage.getItem(CACHE_KEY_RATES);
     if (cached) {
       const data: CachedRates = JSON.parse(cached);
-      if (Date.now() - data.ts < CACHE_TTL) {
+      if (Date.now() - data.ts < CACHE_TTL && Object.keys(data.rates || {}).length > 0) {
         return data.rates;
       }
     }
@@ -60,27 +84,38 @@ export async function fetchExchangeRates(): Promise<Record<string, number>> {
     // Cache read failed
   }
 
-  // Fetch fresh rates
+  // Try primary endpoint
+  let rates: Record<string, number> = {};
   try {
-    const response = await fetch('https://api.exchangerate.host/latest?base=USD');
-    const data = await response.json();
-    const rates = data?.rates || {};
-    
-    // Cache the rates
-    try {
-      localStorage.setItem(CACHE_KEY_RATES, JSON.stringify({
-        ts: Date.now(),
-        rates
-      }));
-    } catch (e) {
-      // Cache write failed
-    }
-    
-    return rates;
+    rates = await fetchFromExchangerateHost();
   } catch (e) {
-    // API failed, return empty rates (will fallback to USD)
-    return {};
+    // Primary failed
   }
+
+  // Fallback if empty
+  if (!rates || Object.keys(rates).length === 0) {
+    try {
+      rates = await fetchFromErApi();
+    } catch (e) {
+      // Fallback also failed
+    }
+  }
+
+  // Cache the rates (even if empty)
+  try {
+    localStorage.setItem(CACHE_KEY_RATES, JSON.stringify({
+      ts: Date.now(),
+      rates
+    }));
+  } catch (e) {
+    // Cache write failed
+  }
+
+  return rates || {};
+}
+
+export function hasRate(currency: SupportedCurrency, rates: Record<string, number>): boolean {
+  return currency === 'USD' || Number.isFinite(rates?.[currency]);
 }
 
 export function convertPrice(
@@ -129,7 +164,8 @@ export function useCurrency() {
       if (mounted) {
         setCurrency(detectedCurrency);
         setRates(fetchedRates);
-        setIsLoading(false);
+        // Only stop loading if we can render correctly (USD or valid rate)
+        setIsLoading(!(detectedCurrency === 'USD' || Number.isFinite(fetchedRates?.[detectedCurrency])));
       }
     }
 
