@@ -1,52 +1,46 @@
 import { useEffect } from 'react';
 import { sfga } from '@/lib/analytics';
-import Header from '@/components/Header';
-import Hero from '@/components/Hero';
-import BrandCodeChips from '@/components/BrandCodeChips';
-import ValueStack from '@/components/ValueStack';
-import CurrencySelector from '@/components/CurrencySelector';
-import PricingTierCards from '@/components/PricingTierCards';
-import Gallery from '@/components/Gallery';
-import { useCurrency } from '@/lib/currency';
-import ProofDashboardEmbed from '@/components/ProofDashboardEmbed';
-import RadicalTransparency from '@/components/RadicalTransparency';
-import MiniFAQ from '@/components/MiniFAQ';
-import LeadMagnetModal from '@/components/LeadMagnetModal';
-import StickyCTA from '@/components/StickyCTA';
+import Masthead from '@/components/site/Masthead';
+import HeroEditorial from '@/components/site/HeroEditorial';
+import Situations from '@/components/site/Situations';
+import ScopeSpec from '@/components/site/ScopeSpec';
+import ExperienceSection from '@/components/site/ExperienceSection';
+import ConceptDemo from '@/components/site/ConceptDemo';
+import ProcessSteps from '@/components/site/ProcessSteps';
+import PriceSection from '@/components/site/PriceSection';
+import FaqEditorial from '@/components/site/FaqEditorial';
+import ContactSection from '@/components/site/ContactSection';
+import SiteFooter from '@/components/site/SiteFooter';
+import MobileContactBar from '@/components/site/MobileContactBar';
 import ConsentBar from '@/components/ConsentBar';
-import Footer from '@/components/Footer';
 
 const Index = () => {
-  const { currency, updateCurrency, isLoading } = useCurrency();
-  
   useEffect(() => {
-    // Initialize analytics helper
     sfga.flushQueue();
   }, []);
 
   return (
     <>
-      <Header />
-      
-      <main role="main" className="min-h-screen">
-        <Hero />
-        <BrandCodeChips />
-        <ValueStack />
-        <CurrencySelector value={currency} onChange={updateCurrency} disabled={isLoading} />
-        <PricingTierCards />
-        <Gallery />
-        <ProofDashboardEmbed />
-        <RadicalTransparency />
-        <MiniFAQ />
+      <Masthead />
+
+      <main role="main">
+        <HeroEditorial />
+        <Situations />
+        <ScopeSpec />
+        <ExperienceSection />
+        <ConceptDemo />
+        <ProcessSteps />
+        <PriceSection />
+        <FaqEditorial />
+        <ContactSection />
       </main>
-      
-      <LeadMagnetModal />
-      <StickyCTA />
-      <ConsentBar />
-      
+
       <footer role="contentinfo" className="w-full">
-        <Footer />
+        <SiteFooter />
       </footer>
+
+      <MobileContactBar />
+      <ConsentBar />
     </>
   );
 };

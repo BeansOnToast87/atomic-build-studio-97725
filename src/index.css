@@ -2,73 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* The Operator's Edit — editorial design system. All colours HSL. */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 210 50% 12%;
-    
-    --card: 0 0% 100%;
-    --card-foreground: 210 50% 12%;
-    
-    --popover: 0 0% 100%;
-    --popover-foreground: 210 50% 12%;
-    
-    --primary: 210 50% 12%;
-    --primary-foreground: 0 0% 100%;
-    
-    --secondary: 207 65% 60%;
-    --secondary-foreground: 0 0% 100%;
-    
-    --muted: 210 20% 96%;
-    --muted-foreground: 210 20% 45%;
-    
-    --accent: 150 50% 55%;
-    --accent-foreground: 0 0% 100%;
-    
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
-    
-    --border: 210 20% 90%;
-    --input: 210 20% 90%;
-    --ring: 207 65% 60%;
-    
-    --radius: 0.5rem;
-    
-    --sticky-cta-h: 64px;
+    /* Editorial primitives */
+    --paper: 41 34% 94%;
+    --paper-deep: 40 26% 89%;
+    --ink: 214 38% 11%;
+    --ink-soft: 214 18% 34%;
+    --accent: 13 55% 41%;
+    --accent-bright: 13 51% 53%;
+    --rule: 214 15% 78%;
+
+    /* Mapped shadcn tokens */
+    --background: var(--paper);
+    --foreground: var(--ink);
+
+    --card: var(--paper);
+    --card-foreground: var(--ink);
+
+    --popover: var(--paper);
+    --popover-foreground: var(--ink);
+
+    --primary: var(--ink);
+    --primary-foreground: var(--paper);
+
+    --secondary: var(--paper-deep);
+    --secondary-foreground: var(--ink);
+
+    --muted: var(--paper-deep);
+    --muted-foreground: var(--ink-soft);
+
+    --accent-foreground: 41 34% 96%;
+
+    --destructive: 0 60% 38%;
+    --destructive-foreground: 41 34% 96%;
+
+    --border: var(--rule);
+    --input: var(--rule);
+    --ring: var(--accent);
+
+    --radius: 0.125rem;
+
+    --sticky-cta-h: 56px;
   }
-  
+
   .dark {
-    --background: 210 50% 8%;
-    --foreground: 0 0% 98%;
-    
-    --card: 210 50% 12%;
-    --card-foreground: 0 0% 98%;
-    
-    --popover: 210 50% 12%;
-    --popover-foreground: 0 0% 98%;
-    
-    --primary: 0 0% 98%;
-    --primary-foreground: 210 50% 12%;
-    
-    --secondary: 207 65% 55%;
-    --secondary-foreground: 0 0% 100%;
-    
-    --muted: 210 30% 20%;
-    --muted-foreground: 210 20% 65%;
-    
-    --accent: 150 50% 55%;
-    --accent-foreground: 0 0% 100%;
-    
-    --destructive: 0 62.8% 50%;
-    --destructive-foreground: 0 0% 98%;
-    
-    --border: 210 30% 20%;
-    --input: 210 30% 20%;
-    --ring: 207 65% 55%;
+    --paper: 214 30% 10%;
+    --paper-deep: 214 28% 14%;
+    --ink: 41 30% 94%;
+    --ink-soft: 41 12% 72%;
+    --accent: 13 60% 60%;
+    --accent-bright: 13 60% 66%;
+    --rule: 214 18% 28%;
+    --accent-foreground: 214 38% 11%;
   }
 }
 
@@ -77,32 +65,76 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground;
-    padding-bottom: calc(var(--sticky-cta-h) + env(safe-area-inset-bottom));
+  html {
+    scroll-behavior: smooth;
   }
-  
-  .sticky-cta {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: var(--sticky-cta-h);
-    z-index: 50;
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    padding-bottom: 0;
+  }
+
+  @media (max-width: 767px) {
+    body {
+      padding-bottom: calc(var(--sticky-cta-h) + env(safe-area-inset-bottom));
+    }
+  }
+
+  h1, h2, h3 {
+    @apply font-display font-normal;
+    letter-spacing: -0.015em;
+  }
+
+  ::selection {
+    background: hsl(var(--accent) / 0.2);
   }
 }
 
 @layer components {
-  /* Focus styles for accessibility */
   a:focus-visible,
-  button:focus-visible {
+  button:focus-visible,
+  summary:focus-visible {
     @apply outline-2 outline-offset-2 outline-ring;
   }
-  
-  /* Minimum touch target size */
-  button,
-  a {
-    min-height: 44px;
-    min-width: 44px;
+
+  /* Editorial eyebrow / label */
+  .eyebrow {
+    @apply font-sans text-[0.6875rem] md:text-xs font-medium uppercase text-ink-soft;
+    letter-spacing: 0.18em;
   }
+
+  .rule {
+    @apply border-t border-border;
+  }
+
+  /* Inline editorial link */
+  .link-editorial {
+    @apply text-accent underline decoration-1 underline-offset-4 transition-colors;
+  }
+  .link-editorial:hover {
+    @apply text-ink decoration-ink;
+  }
+
+  /* Real controls keep an accessible tap target */
+  .tap {
+    min-height: 44px;
+  }
+
+  .measure {
+    max-width: 34rem;
+  }
+
+  .reveal {
+    animation: reveal 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { animation: none; }
+  }
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
 }
