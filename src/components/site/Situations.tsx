@@ -36,7 +36,8 @@ const Situations = () => {
     <section id="situations" aria-labelledby="situations-title" className="w-full border-b border-border">
       <div className="container mx-auto py-14 md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-          <div className="lg:col-span-4 lg:sticky lg:top-8">
+          <div className="lg:col-span-4">
+            <div className="lg:sticky lg:top-8">
             <p className="eyebrow">Who this is for</p>
             <h2 id="situations-title" className="mt-4 font-display text-4xl md:text-5xl leading-[1.02] text-ink">
               This is probably for you if…

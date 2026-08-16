@@ -30,7 +30,8 @@ const FaqEditorial = () => {
     <section id="faq" aria-labelledby="faq-title" className="w-full border-b border-border">
       <div className="container mx-auto py-14 md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
-          <div className="lg:col-span-4 lg:sticky lg:top-24">
+          <div className="lg:col-span-4">
+            <div className="lg:sticky lg:top-24">
             <p className="eyebrow">Questions</p>
             <h2 id="faq-title" className="mt-4 font-display text-4xl md:text-5xl leading-[1.02] text-ink">
               Plainly answered.
