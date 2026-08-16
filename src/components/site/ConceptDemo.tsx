@@ -29,8 +29,8 @@ const ConceptDemo = () => {
       </div>
 
       <div className="container mx-auto py-14 md:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-          <div className="lg:col-span-4 lg:sticky lg:top-28 lg:self-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+          <div className="lg:col-span-4 lg:sticky lg:top-28">
             <p className="eyebrow !text-paper/60">What it could look like</p>
             <h2
               id="concept-title"
