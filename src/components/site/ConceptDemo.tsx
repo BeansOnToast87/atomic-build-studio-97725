@@ -46,7 +46,9 @@ const ConceptDemo = () => {
             <p className="mt-6 border-t border-paper/25 pt-4 text-xs uppercase tracking-[0.16em] text-paper/55">
               Buttons below are illustrative and perform no action.
             </p>
+            </div>
           </div>
+
 
           {/* Composed page fragments */}
           <div className="lg:col-span-8 lg:border-l lg:border-paper/25 lg:pl-16 space-y-12 md:space-y-16">

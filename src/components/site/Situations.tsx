@@ -42,7 +42,9 @@ const Situations = () => {
             <h2 id="situations-title" className="mt-4 font-display text-4xl md:text-5xl leading-[1.02] text-ink">
               This is probably for you if…
             </h2>
+            </div>
           </div>
+
 
           <ul className="lg:col-span-8 lg:border-l lg:border-border lg:pl-12">
             {situations.map((s, i) => (

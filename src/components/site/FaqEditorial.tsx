@@ -36,7 +36,9 @@ const FaqEditorial = () => {
             <h2 id="faq-title" className="mt-4 font-display text-4xl md:text-5xl leading-[1.02] text-ink">
               Plainly answered.
             </h2>
+            </div>
           </div>
+
 
           <div className="lg:col-span-8">
             {faqs.map((f, i) => (
