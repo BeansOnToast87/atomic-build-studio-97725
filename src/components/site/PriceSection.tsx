@@ -74,7 +74,7 @@ const PriceSection = () => {
             <ul className="mt-4">
               {scope.map((item) => (
                 <li key={item.label} className="border-t border-border py-4">
-                  <p className="text-xs uppercase tracking-[0.18em] text-ink-soft">
+                  <p className="text-[0.8125rem] uppercase tracking-[0.14em] text-ink-soft">
                     {item.label}
                   </p>
                   <p className="mt-1.5 measure text-base leading-relaxed text-ink">{item.body}</p>
@@ -82,7 +82,7 @@ const PriceSection = () => {
               ))}
             </ul>
 
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 sm:gap-x-10">
+            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 md:gap-x-12">
               <div className="border-t border-border py-4">
                 <p className="eyebrow">Payment</p>
                 <p className="mt-2 text-base leading-relaxed text-ink">
@@ -98,7 +98,7 @@ const PriceSection = () => {
                   Target 7–10 working days after the required access, content, assets and
                   approvals are supplied.
                 </p>
-                <p className="mt-2 text-sm text-ink-soft">
+                <p className="mt-2 text-sm md:text-base text-ink-soft">
                   Feedback or missing inputs may move the date.
                 </p>
               </div>
@@ -114,7 +114,7 @@ const PriceSection = () => {
               </p>
             </div>
 
-            <p className="mt-8 border-t border-border pt-4 text-sm text-ink-soft">
+            <p className="mt-8 border-t border-border pt-4 measure text-sm md:text-base text-ink-soft">
               Full venue rebuilds and larger hospitality website projects can be scoped
               separately.
             </p>
