@@ -98,7 +98,6 @@ const LasChicasCaseStudy = () => {
               <LasChicasFigure
                 src={mobileHome.url}
                 alt="Las Chicas homepage on a phone: condensed navigation, announcement bar and the same headline set for a narrow screen."
-                alt-desc=""
                 caption="Mobile — the layout guests actually use, rebuilt so information and the booking route survive a narrow screen."
                 ratio="9 / 16"
                 sizes="(min-width: 1024px) 15rem, 60vw"
