@@ -83,8 +83,20 @@ const LasChicasCaseStudy = () => {
         </div>
 
         {/* Dominant desktop view, deliberately offset, with the real mobile view overlapping the rule */}
-        <div className="mt-12 md:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-          <div className="lg:col-span-9 lg:col-start-4 relative">
+        <div className="mt-12 md:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 lg:items-end">
+          {/* Mobile view: the layout guests actually use, set small and low against the rule */}
+          <div className="order-2 lg:order-1 lg:col-span-3 max-w-[14rem] lg:max-w-none lg:pb-6">
+            <LasChicasFigure
+              src={mobileHome.url}
+              alt="Las Chicas homepage on a phone: condensed navigation, announcement bar and the same headline set for a narrow screen."
+              caption="Mobile — the layout guests actually use, rebuilt so information and the booking route survive a narrow screen."
+              ratio="9 / 16"
+              sizes="(min-width: 1024px) 22vw, 60vw"
+              frameClassName="bg-ink"
+            />
+          </div>
+
+          <div className="order-1 lg:order-2 lg:col-span-9">
             <LasChicasFigure
               src={desktopHome.url}
               alt="Las Chicas homepage on desktop: full-width venue photography with the headline “Long nights, shared plates, stirred slowly.” and a Book a table action in the header."
@@ -92,20 +104,9 @@ const LasChicasCaseStudy = () => {
               ratio="16 / 10"
               sizes="(min-width: 1024px) 72vw, 100vw"
             />
-
-            {/* Mobile view: stacked on small screens, overlapping the desktop edge from lg up */}
-            <div className="mt-8 max-w-[15rem] sm:max-w-[16rem] lg:absolute lg:-left-[7.5rem] lg:bottom-[-3.5rem] lg:mt-0 lg:w-[13.5rem] xl:w-[15rem] lg:max-w-none">
-              <LasChicasFigure
-                src={mobileHome.url}
-                alt="Las Chicas homepage on a phone: condensed navigation, announcement bar and the same headline set for a narrow screen."
-                caption="Mobile — the layout guests actually use, rebuilt so information and the booking route survive a narrow screen."
-                ratio="9 / 16"
-                sizes="(min-width: 1024px) 15rem, 60vw"
-                frameClassName="bg-ink"
-              />
-            </div>
           </div>
         </div>
+
 
         {/* Supporting evidence: two journeys, asymmetric */}
         <div className="mt-14 lg:mt-24 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
