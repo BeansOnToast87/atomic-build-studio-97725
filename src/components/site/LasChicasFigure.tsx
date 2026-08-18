@@ -44,7 +44,6 @@ const LasChicasFigure = ({
           sizes={sizes}
           loading={priority ? "eager" : "lazy"}
           decoding="async"
-          fetchPriority={priority ? "high" : "auto"}
           className="h-full w-full object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.015]"
           style={{ objectPosition: position }}
         />
