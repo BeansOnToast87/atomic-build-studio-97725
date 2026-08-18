@@ -150,10 +150,32 @@ const LasChicasCaseStudy = () => {
                 the venue properly. I&rsquo;d happily recommend him to another
                 hospitality business.&rdquo;
               </blockquote>
-              <figcaption className="mt-4 border-t border-border pt-3 text-sm leading-relaxed text-ink-soft">
-                Wording awaiting written confirmation from the venue owner.
-                Attribution will be added once supplied.
+              <figcaption className="mt-6 border-t border-border pt-4">
+                {/* Attribution slot — populate once the owner supplies name/title/logo. */}
+                <div className="flex items-start gap-4">
+                  {TESTIMONIAL_LOGO_SRC && (
+                    <img
+                      src={TESTIMONIAL_LOGO_SRC}
+                      alt="Las Chicas wordmark"
+                      loading="lazy"
+                      className="h-8 w-auto shrink-0 opacity-80"
+                    />
+                  )}
+                  <div>
+                    <p className="text-base leading-tight text-ink">
+                      {TESTIMONIAL_ATTRIBUTION_NAME ?? "[Owner name — to be supplied]"}
+                    </p>
+                    <p className="mt-1 text-[0.8125rem] uppercase tracking-[0.14em] text-ink-soft">
+                      Owner / Director, Las Chicas
+                    </p>
+                  </div>
+                </div>
+                <p className="mt-4 text-sm leading-relaxed text-ink-soft">
+                  Wording awaiting written confirmation from the venue owner.
+                  Attribution will be completed once supplied.
+                </p>
               </figcaption>
+
             </figure>
           )}
         </div>
