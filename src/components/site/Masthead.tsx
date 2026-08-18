@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import logoImage from "@/assets/proof-launch-logo.png";
 import { CONTACT_MAILTO } from "@/lib/contact";
 
 const Masthead = () => {
