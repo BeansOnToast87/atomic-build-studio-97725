@@ -1,21 +1,38 @@
 import { CONTACT_MAILTO } from "@/lib/contact";
 
-const included = [
-  "One focused page, designed around your content",
-  "Copy drafted and edited with you",
-  "Menu set on the page or linked to where it lives",
-  "Opening hours, location and directions",
-  "Booking, delivery and order routes connected",
-  "Contact details for enquiries and private hire",
-  "Built to read well on a phone first",
-  "Live on your own domain at handover",
-];
-
-const notIncluded = [
-  "Large multi-page or bespoke websites",
-  "Replacing your booking or ordering platforms",
-  "Ongoing marketing or content production",
-  "Photography shoots (existing images can be used)",
+const scope = [
+  {
+    label: "One defined journey",
+    body: "One agreed booking, enquiry, functions, event or other important hospitality journey.",
+  },
+  {
+    label: "Focused experience",
+    body: "Normally one primary page or experience, kept deliberately bounded rather than turning into a full-site redesign.",
+  },
+  {
+    label: "Mobile-first design",
+    body: "Designed around the mobile experience first, with a polished desktop version.",
+  },
+  {
+    label: "Message & structure",
+    body: "Information hierarchy and light copy restructuring using approved business facts and content.",
+  },
+  {
+    label: "Trust & action",
+    body: "Approved proof positioned where it helps, with one clear primary booking, enquiry or contact action.",
+  },
+  {
+    label: "Implementation",
+    body: "Built on an agreed, technically suitable setup, including connection to your existing booking or enquiry route where appropriate.",
+  },
+  {
+    label: "Review & QA",
+    body: "One consolidated revision round plus responsive and functional checks.",
+  },
+  {
+    label: "Launch",
+    body: "The agreed experience prepared for launch, with a short post-launch bug-fix window for build defects.",
+  },
 ];
 
 const PriceSection = () => {
@@ -24,43 +41,83 @@ const PriceSection = () => {
       <div className="container mx-auto py-14 md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           <div className="lg:col-span-5">
-            <p className="eyebrow">Scope and price</p>
+            <p className="eyebrow">Focused Sprint</p>
             <h2 id="price-title" className="mt-4 font-display text-4xl md:text-5xl leading-[1.02] text-ink">
-              Focused One-Page Hospitality Website
+              Conversion Experience Sprint
             </h2>
             <p className="mt-8 border-t border-border pt-6 font-display text-6xl md:text-7xl leading-none text-ink">
-              From £995
+              £1,500
             </p>
-            <p className="mt-3 text-sm text-ink-soft">
-              Priced in GBP. Final price depends on how much content needs writing and how
-              many routes are connected.
+            <p className="mt-4 font-display text-2xl md:text-[1.75rem] leading-tight text-ink">
+              One important guest journey, designed and built properly.
             </p>
+            <p className="mt-4 measure text-base leading-relaxed text-ink-soft">
+              Private hire, functions, events, group enquiries or another important part of
+              your hospitality website — redesigned and implemented as a focused mobile-first
+              experience with one clear primary action.
+            </p>
+
             <a
               href={CONTACT_MAILTO}
               className="tap mt-8 inline-flex items-center justify-center bg-ink px-7 text-paper text-sm font-medium tracking-wide hover:bg-accent transition-colors"
             >
-              Start a conversation
+              Talk to Kevin about the journey
             </a>
+            <p className="mt-5 measure text-sm leading-relaxed text-ink-soft">
+              Not sure whether it&apos;s a Sprint? Tell me what you&apos;re trying to improve
+              and I&apos;ll tell you plainly.
+            </p>
           </div>
 
           <div className="lg:col-span-7 lg:border-l lg:border-border lg:pl-16">
-            <p className="eyebrow">Included</p>
+            <p className="eyebrow">What the Sprint covers</p>
             <ul className="mt-4">
-              {included.map((item) => (
-                <li key={item} className="border-t border-border py-3 text-base text-ink">
-                  {item}
+              {scope.map((item) => (
+                <li key={item.label} className="border-t border-border py-4">
+                  <p className="text-xs uppercase tracking-[0.18em] text-ink-soft">
+                    {item.label}
+                  </p>
+                  <p className="mt-1.5 measure text-base leading-relaxed text-ink">{item.body}</p>
                 </li>
               ))}
             </ul>
 
-            <p className="eyebrow mt-10">Not included</p>
-            <ul className="mt-4">
-              {notIncluded.map((item) => (
-                <li key={item} className="border-t border-border py-3 text-base text-ink-soft">
-                  {item}
-                </li>
-              ))}
-            </ul>
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 sm:gap-x-10">
+              <div className="border-t border-border py-4">
+                <p className="eyebrow">Payment</p>
+                <p className="mt-2 text-base leading-relaxed text-ink">
+                  £750 to book.
+                  <br />
+                  £750 once the agreed experience is working on staging or preview, before
+                  launch.
+                </p>
+              </div>
+              <div className="border-t border-border py-4">
+                <p className="eyebrow">Delivery</p>
+                <p className="mt-2 text-base leading-relaxed text-ink">
+                  Target 7–10 working days after the required access, content, assets and
+                  approvals are supplied.
+                </p>
+                <p className="mt-2 text-sm text-ink-soft">
+                  Feedback or missing inputs may move the date.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8 border-t-2 border-accent pt-5">
+              <p className="eyebrow !text-accent">Technical fit</p>
+              <p className="mt-2 measure text-base leading-relaxed text-ink">
+                Technical fit is checked before the project is booked. If the existing platform
+                or setup cannot support the agreed work safely within the Sprint, I&apos;ll tell
+                you before taking payment and either propose a controlled alternative or scope
+                the extra work separately.
+              </p>
+            </div>
+
+            <p className="mt-8 border-t border-border pt-4 text-sm text-ink-soft">
+              Full venue rebuilds and larger hospitality website projects can be scoped
+              separately.
+            </p>
           </div>
         </div>
       </div>

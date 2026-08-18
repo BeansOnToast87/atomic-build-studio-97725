@@ -1,33 +1,18 @@
 const steps = [
   {
     n: "01",
-    title: "A conversation",
-    body: "You describe the venue, where your information currently lives and what guests keep asking for.",
+    title: "Identify the journey",
+    body: "We agree the one guest journey to improve, what action matters, what content is required and whether the current technical setup is suitable.",
   },
   {
     n: "02",
-    title: "Scope agreed",
-    body: "We settle exactly what the page will carry and which existing platforms it connects to, in writing.",
+    title: "Design and build",
+    body: "I restructure the experience, design it mobile-first and build the agreed scope using the approved content, proof and existing booking or enquiry routes.",
   },
   {
     n: "03",
-    title: "Words and structure",
-    body: "Your copy is drafted and ordered so the page reads as your venue rather than as a template.",
-  },
-  {
-    n: "04",
-    title: "Design and build",
-    body: "The page is designed around your content, then built to be quick, legible and easy to read on a phone.",
-  },
-  {
-    n: "05",
-    title: "Review",
-    body: "You read it, correct it and confirm the details before anything goes live.",
-  },
-  {
-    n: "06",
-    title: "Handover",
-    body: "The site goes live on your domain, and you know how the information gets updated.",
+    title: "Review and launch",
+    body: "You give one consolidated round of feedback. I complete QA, demonstrate the agreed experience on staging or preview and prepare it for launch.",
   },
 ];
 
@@ -44,16 +29,18 @@ const ProcessSteps = () => {
 
         <ol className="mt-10 md:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-12">
           {steps.map((s) => (
-            <li
-              key={s.n}
-              className="border-t border-border py-6 lg:pr-8"
-            >
+            <li key={s.n} className="border-t border-border py-6 lg:pr-8">
               <span className="eyebrow">{s.n}</span>
               <h3 className="mt-3 font-display text-2xl leading-tight text-ink">{s.title}</h3>
               <p className="mt-2 text-sm md:text-base leading-relaxed text-ink-soft">{s.body}</p>
             </li>
           ))}
         </ol>
+
+        <p className="mt-8 border-t border-border pt-4 measure text-sm text-ink-soft">
+          The 7–10 working day target starts once the required access, content and assets are
+          supplied.
+        </p>
       </div>
     </section>
   );

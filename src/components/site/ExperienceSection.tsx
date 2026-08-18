@@ -32,14 +32,19 @@ const ExperienceSection = () => {
             </h2>
             <div className="mt-6 space-y-4 measure text-base leading-relaxed text-paper/80">
               <p>
-                Two decades on the floor and in management means the questions a venue gets
-                asked all day are familiar ones: are you open, what is on, where are you,
-                can we get a table, can we bring twelve people on a Thursday.
+                Hospitality isn&apos;t a niche I picked for a web business. Two decades on the
+                floor and in management means the operational reality is familiar: menus and
+                details change, guests ask the same questions all day, and functions, events
+                and group enquiries need different answers to a table for two.
               </p>
               <p>
-                That is what the page is organised around — the information guests ask for,
-                written the way an operator would answer it, and kept simple enough that you
-                can keep it accurate during a busy week.
+                It also means knowing how much reaches a busy team. Bookings and enquiries need
+                clear routes, old information survives rebrands, and whatever the guest reads
+                online decides what they already believe before anyone speaks to them.
+              </p>
+              <p>
+                A Sprint is designed from that side of the counter — one journey, ordered the
+                way an operator would answer it, and practical to keep accurate.
               </p>
             </div>
           </div>
