@@ -119,12 +119,12 @@ const LasChicasCaseStudy = () => {
               sizes="(min-width: 1024px) 46vw, 100vw"
             />
           </div>
-          <div className="lg:col-span-4 lg:col-start-9 lg:pt-20">
+          <div className="lg:col-span-4 lg:col-start-9 lg:pt-24">
             <LasChicasFigure
               src={whatsOnShot}
               alt="Las Chicas What's On page: editorial heading “The week at Las Chicas.” beside a photograph of cocktails being made."
               caption="What's On — weekly events given a place of their own, pointed at the same booking routes."
-              ratioClass="aspect-[3/2] lg:aspect-[4/3]"
+              ratioClass="aspect-[2/1]"
               sizes="(min-width: 1024px) 32vw, 100vw"
             />
           </div>
