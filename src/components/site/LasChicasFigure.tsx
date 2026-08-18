@@ -4,8 +4,8 @@ type Props = {
   src: string;
   alt: string;
   caption: string;
-  /** CSS aspect-ratio value, e.g. "16 / 10" — reserves space to avoid layout shift. */
-  ratio: string;
+  /** Tailwind aspect-ratio classes, e.g. "aspect-[4/3] md:aspect-[16/10]" — reserves space to avoid layout shift. */
+  ratioClass: string;
   /** object-position, useful when a crop should favour the top of a screenshot. */
   position?: string;
   sizes?: string;
@@ -22,7 +22,7 @@ const LasChicasFigure = ({
   src,
   alt,
   caption,
-  ratio,
+  ratioClass,
   position = "50% 0%",
   sizes = "100vw",
   priority = false,
@@ -34,9 +34,9 @@ const LasChicasFigure = ({
       <div
         className={cn(
           "overflow-hidden border border-border bg-paper-deep",
+          ratioClass,
           frameClassName
         )}
-        style={{ aspectRatio: ratio }}
       >
         <img
           src={src}
