@@ -48,7 +48,7 @@ const LasChicasFigure = ({
           style={{ objectPosition: position }}
         />
       </div>
-      <figcaption className="mt-3 border-t border-border pt-2 text-xs md:text-sm leading-relaxed text-ink-soft">
+      <figcaption className="mt-3 border-t border-border pt-2 text-sm leading-relaxed text-ink-soft">
         {caption}
       </figcaption>
     </figure>
