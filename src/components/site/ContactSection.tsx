@@ -25,13 +25,14 @@ const ContactSection = () => {
             </p>
             <a
               href={CONTACT_MAILTO}
-              className="tap mt-8 inline-flex items-center justify-center bg-paper px-7 text-ink text-sm font-medium tracking-wide hover:bg-accent hover:text-paper transition-colors"
+              className="tap mt-8 inline-flex w-full items-center justify-center border-b-2 border-accent bg-paper px-9 py-1 text-ink text-base font-medium tracking-wide hover:bg-accent hover:text-paper hover:border-paper transition-colors"
             >
               Start a conversation
             </a>
             <p className="mt-5 border-t border-paper/25 pt-4 text-sm text-paper/70">
               {CONTACT_EMAIL}
             </p>
+
           </div>
         </div>
       </div>
