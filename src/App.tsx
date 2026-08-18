@@ -17,6 +17,31 @@ import Dashboard from "./pages/proof/Dashboard";
 
 const queryClient = new QueryClient();
 
+/** Legacy demo/proof routes carry old positioning — keep them reachable but out of search results. */
+const LEGACY_PREFIXES = ["/demos", "/proof"];
+
+const RobotsMeta = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const isLegacy = LEGACY_PREFIXES.some((p) => location.pathname.startsWith(p));
+    let tag = document.querySelector<HTMLMetaElement>('meta[name="robots"]');
+
+    if (isLegacy) {
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.name = "robots";
+        document.head.appendChild(tag);
+      }
+      tag.content = "noindex, nofollow";
+    } else if (tag) {
+      tag.remove();
+    }
+  }, [location]);
+
+  return null;
+};
+
 const PageViewTracker = () => {
   const location = useLocation();
 
@@ -39,6 +64,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <RobotsMeta />
         <PageViewTracker />
         <Routes>
           <Route path="/" element={<Index />} />
