@@ -19,7 +19,7 @@ const TESTIMONIAL_LOGO_SRC: string | null = null;
 const narrative = [
   {
     label: "The situation",
-    body: "Las Chicas was moving on from its previous identity, Cony's. The digital presence still carried legacy branding, outdated contact details, inconsistent menu and promotion information, old booking URLs and fragmented enquiry routes — weakest on mobile, where most guests were arriving.",
+    body: "Las Chicas was moving on from its previous identity, Cony's. The digital presence still carried legacy branding, outdated contact details, inconsistent menu and promotion information, old booking URLs and fragmented enquiry routes, with mobile presentation one of the areas that needed particular attention.",
   },
   {
     label: "The work",
@@ -51,7 +51,7 @@ const LasChicasCaseStudy = () => {
                 Las Chicas, Cronulla
               </h2>
               <p className="mt-5 measure font-display text-xl md:text-2xl leading-snug text-ink-soft">
-                From a fragmented rebrand transition to one clear digital home.
+                From a messy rebrand transition to one clear digital home.
               </p>
               <p className="mt-6 border-t border-border pt-3 measure text-sm md:text-base leading-relaxed text-ink-soft">
                 Real client work. Cocktail bar and kitchen, Cronulla — website,
@@ -89,24 +89,24 @@ const LasChicasCaseStudy = () => {
 
         {/* Dominant desktop view, with the real mobile view set small and low beside it */}
         <div className="mt-12 md:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 lg:items-end">
-          <div className="order-1 lg:order-2 lg:col-span-9">
+          <div className="order-1 lg:order-2 lg:col-span-8">
             <LasChicasFigure
               src={desktopHome}
               alt="Las Chicas homepage on desktop: full-width venue photography with the headline “Long nights, shared plates, stirred slowly.” and a Book a table action in the header."
               caption="Homepage — venue character first, with one unmistakable booking action held in the header and announcement bar."
               ratioClass="aspect-[4/3] md:aspect-[16/10]"
-              sizes="(min-width: 1024px) 72vw, 100vw"
+              sizes="(min-width: 1024px) 64vw, 100vw"
               priority
             />
           </div>
 
-          <div className="order-2 lg:order-1 lg:col-span-3 max-w-[13rem] sm:max-w-[15rem] lg:max-w-none lg:pb-6">
+          <div className="order-2 lg:order-1 lg:col-span-4 max-w-[13rem] sm:max-w-[15rem] lg:max-w-none lg:pb-6">
             <LasChicasFigure
               src={mobileHome}
               alt="Las Chicas homepage on a phone: condensed navigation, announcement bar and the same headline set for a narrow screen."
-              caption="Mobile — the layout guests actually use, rebuilt so the information and the booking route survive a narrow screen."
+              caption="Mobile — the experience rebuilt for a narrow screen, keeping key information and booking routes clear."
               ratioClass="aspect-[9/16]"
-              sizes="(min-width: 1024px) 22vw, 55vw"
+              sizes="(min-width: 1024px) 30vw, 55vw"
               frameClassName="bg-ink"
             />
           </div>
@@ -127,7 +127,7 @@ const LasChicasCaseStudy = () => {
             <LasChicasFigure
               src={whatsOnShot}
               alt="Las Chicas What's On page: editorial heading “The week at Las Chicas.” beside a photograph of cocktails being made."
-              caption="What's On — weekly events given a place of their own, pointed at the same booking routes."
+              caption="What's On — weekly events given a place of their own, with clear routes to booking."
               ratioClass="aspect-[2/1]"
               sizes="(min-width: 1024px) 32vw, 100vw"
             />

@@ -105,10 +105,9 @@ const PriceSection = () => {
             <div className="mt-8 border-t-2 border-accent pt-5">
               <p className="eyebrow !text-accent">Technical fit</p>
               <p className="mt-2 measure text-base leading-relaxed text-ink">
-                Technical fit is checked before the project is booked. If the existing platform
-                or setup cannot support the agreed work safely within the Sprint, I&apos;ll tell
-                you before taking payment and either propose a controlled alternative or scope
-                the extra work separately.
+                Technical fit is checked before booking. If the current setup can&apos;t support
+                the agreed Sprint safely within scope, I&apos;ll tell you before taking payment
+                and recommend the cleanest alternative.
               </p>
             </div>
 

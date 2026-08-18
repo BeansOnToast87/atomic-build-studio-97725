@@ -28,7 +28,8 @@ const ExperienceSection = () => {
               id="experience-title"
               className="font-display text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.1]"
             >
-              Built by someone who has worked services, not just websites.
+              Built by someone who&apos;s worked the floor, managed teams and lived the
+              operational side of hospitality.
             </h2>
             <div className="mt-6 space-y-4 measure text-base leading-relaxed text-paper/80">
               <p>
