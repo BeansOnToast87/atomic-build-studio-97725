@@ -90,7 +90,7 @@ const LasChicasCaseStudy = () => {
               src={desktopHome}
               alt="Las Chicas homepage on desktop: full-width venue photography with the headline “Long nights, shared plates, stirred slowly.” and a Book a table action in the header."
               caption="Homepage — venue character first, with one unmistakable booking action held in the header and announcement bar."
-              ratio="16 / 10"
+              ratioClass="aspect-[4/3] md:aspect-[16/10]"
               sizes="(min-width: 1024px) 72vw, 100vw"
               priority
             />
@@ -101,7 +101,7 @@ const LasChicasCaseStudy = () => {
               src={mobileHome}
               alt="Las Chicas homepage on a phone: condensed navigation, announcement bar and the same headline set for a narrow screen."
               caption="Mobile — the layout guests actually use, rebuilt so the information and the booking route survive a narrow screen."
-              ratio="9 / 16"
+              ratioClass="aspect-[9/16]"
               sizes="(min-width: 1024px) 22vw, 55vw"
               frameClassName="bg-ink"
             />
@@ -115,7 +115,7 @@ const LasChicasCaseStudy = () => {
               src={functionsShot}
               alt="Las Chicas functions page: headline “Group nights, planned with care.” with an enquire about functions and events action alongside standard bookings."
               caption="Functions — group and private-hire interest separated from standard bookings, with its own enquiry route."
-              ratio="3 / 2"
+              ratioClass="aspect-[16/10]"
               sizes="(min-width: 1024px) 46vw, 100vw"
             />
           </div>
@@ -124,7 +124,7 @@ const LasChicasCaseStudy = () => {
               src={whatsOnShot}
               alt="Las Chicas What's On page: editorial heading “The week at Las Chicas.” beside a photograph of cocktails being made."
               caption="What's On — weekly events given a place of their own, pointed at the same booking routes."
-              ratio="2 / 1"
+              ratioClass="aspect-[3/2] lg:aspect-[4/3]"
               sizes="(min-width: 1024px) 32vw, 100vw"
             />
           </div>
