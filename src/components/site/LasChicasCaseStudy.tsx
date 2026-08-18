@@ -119,15 +119,16 @@ const LasChicasCaseStudy = () => {
               sizes="(min-width: 1024px) 40vw, 100vw"
             />
           </div>
-          <div className="lg:col-span-4 lg:col-start-8 lg:pt-16">
+          <div className="lg:col-span-5 lg:col-start-8 lg:pt-16">
             <LasChicasFigure
               src={whatsOnShot.url}
               alt="Las Chicas What's On page: editorial heading “The week at Las Chicas.” beside a photograph of cocktails being made."
               caption="What's On — weekly events and seasonal moments given a place of their own, pointed at the same booking routes."
-              ratio="3 / 2"
-              sizes="(min-width: 1024px) 32vw, 100vw"
+              ratio="2 / 1"
+              sizes="(min-width: 1024px) 40vw, 100vw"
             />
           </div>
+
         </div>
 
         {/* Evidence boundary + draft testimonial */}
