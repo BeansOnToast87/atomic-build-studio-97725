@@ -1,46 +1,41 @@
 const situations = [
   {
     n: "01",
-    title: "Opening or recently opened",
-    body: "You need one clear place that tells people what the venue is and how to reach it.",
+    title: "Private hire & functions",
+    body: "Help guests understand the offer, relevant details and enquiry route without unnecessary hunting.",
   },
   {
     n: "02",
-    title: "Relaunching or rebranding",
-    body: "The name, room or menu has changed and the information online no longer matches.",
+    title: "Bookings",
+    body: "Make the route from venue interest to the correct booking action clear.",
   },
   {
     n: "03",
-    title: "Moving into permanent premises",
-    body: "You are settling into a site and need an address, hours and booking route stated properly.",
+    title: "Relaunches & rebrands",
+    body: "Bring the new identity, current information and important guest journeys together while removing outdated digital remnants.",
   },
   {
     n: "04",
-    title: "Running mostly on social",
-    body: "Your hours and menu live in stories and captions, and guests have to dig for them.",
+    title: "Promoted experiences",
+    body: "Give a specific event, package or promotion a focused route rather than sending interested guests into generic venue information.",
   },
   {
     n: "05",
-    title: "Information fragmented",
-    body: "Menus, hours and contact details sit across several platforms and disagree with each other.",
-  },
-  {
-    n: "06",
-    title: "No first-party site",
-    body: "Everything about you is published by someone else, on someone else's terms.",
+    title: "Venue information",
+    body: "Make menus, opening hours, location, booking or order routes and other guest-critical information easier to understand and act on.",
   },
 ];
 
 const Situations = () => {
   return (
-    <section id="situations" aria-labelledby="situations-title" className="w-full border-b border-border">
+    <section id="what-i-improve" aria-labelledby="situations-title" className="w-full border-b border-border">
       <div className="container mx-auto py-14 md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
           <div className="lg:col-span-4">
             <div className="lg:sticky lg:top-8">
-            <p className="eyebrow">Who this is for</p>
+            <p className="eyebrow">What I improve</p>
             <h2 id="situations-title" className="mt-4 font-display text-4xl md:text-5xl leading-[1.02] text-ink">
-              This is probably for you if…
+              The website usually isn&apos;t the problem. The journey is.
             </h2>
             </div>
           </div>
