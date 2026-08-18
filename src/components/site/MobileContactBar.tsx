@@ -8,7 +8,7 @@ const MobileContactBar = () => {
     >
       <a
         href={CONTACT_MAILTO}
-        className="flex h-14 items-center justify-center text-xs font-medium uppercase tracking-[0.18em] text-paper"
+        className="flex h-14 items-center justify-center text-[0.8125rem] font-medium uppercase tracking-[0.16em] text-paper"
       >
         Start a conversation
       </a>
