@@ -12,6 +12,10 @@ const whatsOnShot = "/assets/laschicas/laschicas-whats-on.jpg";
  */
 const SHOW_DRAFT_TESTIMONIAL = true;
 
+/** Attribution inputs — leave null until the owner supplies them in writing. */
+const TESTIMONIAL_ATTRIBUTION_NAME: string | null = null;
+const TESTIMONIAL_LOGO_SRC: string | null = null;
+
 const narrative = [
   {
     label: "The situation",
