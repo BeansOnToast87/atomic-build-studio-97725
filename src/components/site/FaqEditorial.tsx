@@ -1,27 +1,31 @@
 const faqs = [
   {
-    q: "Why only one page?",
-    a: "Because that is usually all an independent venue needs. One page keeps the important information in one place, keeps it quick to load, and keeps it realistic for you to keep accurate.",
+    q: "Is this a full website redesign?",
+    a: "Not usually. The Sprint focuses on one important guest journey — for example private hire, functions, events, group enquiries or another booking or enquiry experience. A larger website project can be scoped separately if that's what the business actually needs.",
   },
   {
-    q: "Will it replace my booking system?",
-    a: "No. Whatever you already use for bookings, delivery or orders stays exactly as it is — the page connects to it clearly so guests can find it.",
+    q: "What kind of hospitality journey is suitable?",
+    a: "The best fit is a journey where a guest has clear intent but the current route is fragmented, generic, difficult to use or harder to understand than it needs to be. That might be functions, private hire, events, a promoted experience, group enquiries or another important part of the website.",
   },
   {
-    q: "What if my menu changes often?",
-    a: "We can either set the menu on the page and update it, or link to wherever you already keep it current. That decision is made when the scope is agreed.",
+    q: "What does £1,500 include?",
+    a: "One defined experience, mobile-first design, information and light copy restructuring from approved content, one clear primary action, implementation on a suitable setup, one consolidated revision round, responsive and functional QA, and launch preparation.",
   },
   {
-    q: "Do I need photography?",
-    a: "Not necessarily. The page is built to work on typography and structure. If you have good images of the room, the food or the signage, they can be used.",
+    q: "Can you work with my current booking or enquiry platform?",
+    a: "Usually, where the existing platform provides a practical route to connect or link into it. The Sprint does not replace booking systems, POS platforms or other specialist software.",
   },
   {
-    q: "Who writes the words?",
-    a: "They are drafted for you and then edited together, so the page sounds like your venue rather than a template.",
+    q: "What do you need from me?",
+    a: "Usually access to the relevant website or platform, current business information and content, approved images and proof where needed, the existing booking or enquiry route, and timely consolidated feedback.",
   },
   {
-    q: "What happens after handover?",
-    a: "The site is live on your domain and you know how information gets updated. Anything beyond that is agreed separately.",
+    q: "What if my existing website is technically unsuitable?",
+    a: "I check technical fit before the project is booked. If the current platform or access makes the agreed work unsafe or unrealistic within the fixed scope, I'll tell you before taking payment and either propose a controlled alternative or scope the extra work separately.",
+  },
+  {
+    q: "Do you guarantee more bookings or revenue?",
+    a: "No. The Sprint improves an agreed guest journey and its implementation. It does not guarantee bookings, enquiries, revenue, conversion uplift or commercial performance.",
   },
 ];
 

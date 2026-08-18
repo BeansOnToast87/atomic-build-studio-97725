@@ -11,16 +11,17 @@ const ContactSection = () => {
               id="contact-title"
               className="mt-5 font-display text-[2.75rem] leading-[1.02] md:text-6xl lg:text-7xl"
             >
-              Tell me about
+              Tell me about the journey
               <br />
-              <span className="italic">your venue.</span>
+              <span className="italic">you&apos;d like to improve.</span>
             </h2>
           </div>
 
           <div className="lg:col-span-4 lg:border-l lg:border-paper/25 lg:pl-12">
             <p className="measure text-base leading-relaxed text-paper/80">
-              A short email is enough to start — the venue, where you are up to, and what
-              guests currently struggle to find.
+              Tell me about the venue, what guests currently use, and the booking, enquiry or
+              experience you want to make clearer. I&apos;ll tell you plainly whether a focused
+              Sprint is a fit.
             </p>
             <a
               href={CONTACT_MAILTO}
