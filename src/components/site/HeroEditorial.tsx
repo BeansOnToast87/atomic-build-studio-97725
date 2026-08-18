@@ -13,7 +13,7 @@ const HeroEditorial = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12">
           {/* Left: display statement */}
           <div className="lg:col-span-7 lg:border-r lg:border-border lg:pr-12 pt-12 md:pt-20 lg:pt-28 pb-10 lg:pb-24">
-            <p className="eyebrow">Hospitality websites &amp; customer journeys</p>
+            <p className="eyebrow">Hospitality websites &amp; guest journeys</p>
             <h1 className="mt-6 md:mt-8 font-display text-[3.25rem] leading-[0.95] sm:text-6xl md:text-7xl lg:text-[5.5rem] lg:leading-[0.92] text-ink">
               A clearer path
               <br />

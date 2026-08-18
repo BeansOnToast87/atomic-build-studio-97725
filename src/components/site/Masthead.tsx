@@ -9,19 +9,10 @@ const Masthead = () => {
         <div className="flex items-center justify-between gap-4 py-4">
           <Link
             to="/"
-            className="flex items-center gap-3 group"
+            className="group inline-flex items-center"
             aria-label="Proof Launch Studio — homepage"
           >
-            <img
-              src={logoImage}
-              width="36"
-              height="36"
-              alt="Proof Launch Studio"
-              decoding="async"
-              loading="eager"
-              className="h-9 w-9 shrink-0 object-contain"
-            />
-            <span className="font-display text-lg md:text-xl leading-none tracking-tight text-ink">
+            <span className="font-display text-lg md:text-xl leading-none tracking-tight text-ink group-hover:text-accent transition-colors">
               Proof Launch Studio
             </span>
           </Link>
