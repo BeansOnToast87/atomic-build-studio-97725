@@ -45,27 +45,47 @@ const PriceSection = () => {
             <h2 id="price-title" className="mt-4 font-display text-4xl md:text-5xl leading-[1.02] text-ink">
               Conversion Experience Sprint
             </h2>
-            <p className="mt-8 border-t border-border pt-6 font-display text-6xl md:text-7xl leading-none text-ink">
+            <p className="mt-6 border-t-2 border-ink pt-6 font-display text-[4.5rem] md:text-8xl leading-[0.9] text-ink">
               £1,500
             </p>
             <p className="mt-4 font-display text-2xl md:text-[1.75rem] leading-tight text-ink">
               One important guest journey, designed and built properly.
             </p>
-            <p className="mt-4 measure text-base leading-relaxed text-ink-soft">
-              Private hire, functions, events, group enquiries or another important part of
-              your hospitality website — redesigned and implemented as a focused mobile-first
-              experience with one clear primary action.
-            </p>
+
+            <dl className="mt-8 border-t border-border">
+              <div className="border-b border-border py-4">
+                <dt className="eyebrow">Payment</dt>
+                <dd className="mt-2 text-base leading-relaxed text-ink">
+                  £750 to book · £750 before launch, after the agreed experience
+                  is demonstrated on staging or preview.
+                </dd>
+              </div>
+              <div className="border-b border-border py-4">
+                <dt className="eyebrow">Target</dt>
+                <dd className="mt-2 text-base leading-relaxed text-ink">
+                  7–10 working days after the required access, content, assets
+                  and approvals are supplied.
+                </dd>
+                <dd className="mt-1 text-sm text-ink-soft">
+                  Feedback or missing inputs may move the date.
+                </dd>
+              </div>
+            </dl>
 
             <a
               href={CONTACT_MAILTO}
-              className="tap mt-8 inline-flex items-center justify-center bg-ink px-7 text-paper text-sm font-medium tracking-wide hover:bg-accent transition-colors"
+              className="tap mt-8 inline-flex w-full sm:w-auto items-center justify-center bg-ink px-9 text-paper text-base font-medium tracking-wide hover:bg-accent transition-colors"
             >
               Talk to Kevin about the journey
             </a>
             <p className="mt-5 measure text-sm leading-relaxed text-ink-soft">
               Not sure whether it&apos;s a Sprint? Tell me what you&apos;re trying to improve
               and I&apos;ll tell you plainly.
+            </p>
+            <p className="mt-6 measure text-base leading-relaxed text-ink-soft">
+              Private hire, functions, events, group enquiries or another important part of
+              your hospitality website — redesigned and implemented as a focused mobile-first
+              experience with one clear primary action.
             </p>
           </div>
 
@@ -82,28 +102,6 @@ const PriceSection = () => {
               ))}
             </ul>
 
-            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 md:gap-x-12">
-              <div className="border-t border-border py-4">
-                <p className="eyebrow">Payment</p>
-                <p className="mt-2 text-base leading-relaxed text-ink">
-                  £750 to book.
-                  <br />
-                  £750 once the agreed experience is working on staging or preview, before
-                  launch.
-                </p>
-              </div>
-              <div className="border-t border-border py-4">
-                <p className="eyebrow">Delivery</p>
-                <p className="mt-2 text-base leading-relaxed text-ink">
-                  Target 7–10 working days after the required access, content, assets and
-                  approvals are supplied.
-                </p>
-                <p className="mt-2 text-sm md:text-base text-ink-soft">
-                  Feedback or missing inputs may move the date.
-                </p>
-              </div>
-            </div>
-
             <div className="mt-8 border-t-2 border-accent pt-5">
               <p className="eyebrow !text-accent">Technical fit</p>
               <p className="mt-2 measure text-base leading-relaxed text-ink">
@@ -119,6 +117,7 @@ const PriceSection = () => {
               separately.
             </p>
           </div>
+
         </div>
       </div>
     </section>
